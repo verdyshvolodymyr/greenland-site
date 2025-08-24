@@ -1,0 +1,530 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #122117;
+  font-family: 'Noto Sans Math', sans-serif;
+}
+
+.header {
+  position: relative;
+  min-height: 100dvh;
+  overflow: hidden;  
+}
+
+.header > .container {
+  position: relative;
+  z-index: 1;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;   
+  padding: 0 45px;
+}
+
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.header__nav {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__nav-list {
+  display: flex;
+  gap: 65px;
+}
+
+.header__nav-item {
+  list-style-type: none;
+}
+
+.header__nav-link {
+  color: #fff;
+  text-decoration: none;
+}
+
+.header__social-link {
+  text-decoration: none;
+  margin-left: 30px;
+}
+
+.header__nav--line {
+  border-bottom: 1px solid #fff;
+}
+
+.about_us__text {
+  display: inline-block;
+  max-width: 1075px;
+  color: #fff;
+  padding-left: 180px;
+
+  font-size: 20px;
+  font-weight: 400;
+  margin-top: 35px;
+}
+
+.apartaments {
+  margin-top: 60px;
+}
+
+/* ------------ */
+:root{
+  --bg:#122117;        /* твой тёмно-зелёный */
+  --text:#fff;
+  --muted:#e8e8e0;
+}
+
+.room-slider{
+  position: relative;
+  max-width: 1200px;
+  margin: 40px auto;
+  color: var(--text);
+  background: var(--bg);
+  overflow: hidden;
+}
+
+/* Лента */
+.room-slider__track{
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 100%;
+  transition: transform .5s ease;
+}
+
+/* Слайд */
+.room-slide{
+  display: grid;
+  grid-template-columns: 425px 1fr; /* левая картинка шире */
+  gap: clamp(16px,4vw,48px);
+  padding: clamp(16px,3vw,48px);
+  align-items: center;
+}
+
+/* Левая стопка картинок (эффект “карточек”) */
+.room-slide__media{
+  position: relative;
+  height: clamp(240px, 55vh, 520px);
+  overflow: hidden;
+}
+.room-slide__img{
+  position: absolute; 
+  width: 100%;
+  height: 100%; 
+  object-fit: cover; 
+  object-position: center;
+  border-radius: 62px;
+}
+.room-slide__img--back{
+  transform: translateX(-16%) scale(.92);
+  filter: blur(1px) brightness(.9);
+  opacity: .7;
+}
+.room-slide__img--mid{
+  transform: translateX(-8%) scale(.96);
+  opacity: .85;
+}
+
+/* Контент справа */
+.room-slide__content h3{
+  font-size: clamp(22px,3vw,44px);
+  margin: 0 0 16px;
+  max-width: 465px;
+}
+.room-slide__meta{
+  margin: 8px 0 20px;
+  max-width: 465px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+.room-slide__btn{
+  display:inline-block;
+  padding: 14px 26px;
+  background:#f6f1db;
+  color:#232b23;
+  border-radius: 14px;
+  text-decoration: none;
+  box-shadow: 0 6px 0 rgba(0,0,0,.18);
+  transition: transform .1s ease;
+}
+.room-slide__btn:active{ transform: translateY(2px); }
+
+/* Стрелки */
+.room-slider__arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  color:#fff; 
+  font-size:28px; 
+  line-height:56px;
+  display:grid; 
+  place-items:center;
+  cursor:pointer;
+  background-color: transparent;
+  border: none;
+}
+.room-slider__arrow--prev{ left:16px; }
+.room-slider__arrow--next{ right:16px; }
+
+/* Точки */
+.room-slider__dots{
+  display:none; 
+  gap:8px; 
+  justify-content:center;
+  padding:16px 0 20px;
+}
+.room-slider__dot{
+  width:8px; height:8px; border-radius:50%;
+  background: rgba(255,255,255,.35);
+  cursor:pointer;
+}
+.room-slider__dot.is-active{ background:#fff; }
+
+/* Адаптив */
+@media (max-width: 900px){
+  .room-slide{ grid-template-columns: 1fr; }
+  .room-slide__content{ padding-bottom: 8px; }
+  .room-slider__arrow{ width:44px; height:44px; font-size:22px; }
+}
+
+
+/* ------------------- */
+
+.territory {
+  margin-top: 100px;
+}
+
+.territory__title {
+  color: #fff;
+  font-size: 32px;
+  text-align: center;
+
+  margin-bottom: 100px;
+}
+
+.territory__amenities {
+  display: flex;
+  align-items: flex-end;
+  width: 845px;
+  margin: 0 auto;
+}
+
+.territory__amenities-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+  height: 140px;
+}
+
+.territory__amenities-item-parking {
+  margin-top: -20px;
+}
+
+.territory__amenities-icon-parking {
+  width: 85px;
+}
+
+.territory__amenities-item-wifi {
+
+  margin-left: 150px;
+}
+
+.territory__amenities-icon-wifi {
+  width: 80px;
+}
+
+.territory__amenities-text-wifi {
+  margin-top: 17px;
+}
+
+.territory__amenities-item-water {
+  margin-top: -20px;
+  margin-left: 136px;
+}
+
+.territory__amenities-icon-water {
+  width: 135px;
+}
+
+.territory__amenities-text-water {
+  margin-top: 7px;
+}
+
+.territory__amenities-item-rest_place {
+  margin-top: -15px;
+  margin-left: 121px;
+}
+
+.territory__amenities-icon-rest_place {
+  width: 109px;
+}
+
+.territory__amenities-text {
+  color: #fff;
+  text-align: center;
+  
+
+  font-size: 16px;
+}
+
+.territory__amenities-item-grill {
+  margin-top: 61px;
+  margin-left: -22px;
+}
+
+.territory__amenities-item-tennis {
+  margin-left: 120px;
+  margin-top: 40px;
+}
+
+.territory__amenities-text-tennis {
+  margin-top: -7px;
+}
+
+.territory__amenities-item-bicycles {
+  margin-top: 70px;
+  margin-left: 130px;
+}
+
+.territory__amenities-text-bicycles {
+  margin-top: 27px;
+}
+
+.territory__amenities-item-trampoline {
+  margin-top: 83px;
+  margin-left: 150px;
+}
+
+/* actions */
+
+.actions__title {
+  font-size: 32px;
+  color: #fff;
+  text-align: center;
+  margin-top: 110px;
+  margin-bottom: 40px;
+}
+
+.actions__items {
+  display: flex;
+  gap: 20px;
+}
+
+.actions__item {
+  width: 257px;
+  border-radius: 40px;
+  border: 1px solid #fff;
+}
+
+.actions__img {
+  width: 257px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 40px;
+  border: 1px solid #fff;
+}
+
+.actions__descripton {
+  color: #fff;
+  text-align: center;
+  display: block;
+  padding: 30px 0 30px 0;
+
+  font-size: 20px;
+}
+
+/* activities */
+
+.activities__title {
+  color: #fff;
+  font-size: 32px;
+  text-align: center;
+
+  margin-top: 110px;
+  margin-bottom: 70px;
+}
+
+.activities__gl-text {
+  color: #fff;
+  font-size: 22px;
+}
+
+.activities__yoga-text {
+  color: #fff;
+  font-size: 22px;
+}
+
+.activities__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+
+  justify-items: center;
+  align-items: center;
+}
+
+.activities__img {
+  width: 400px;
+  border-radius: 40px;
+  object-fit: cover;
+}
+
+.activities__gl {
+  grid-column: 1 ;
+  grid-row: 1;
+}
+
+.activities__picture_1 {
+  grid-column: 1;
+  grid-row: 2 / 4;
+}
+
+.activities__picture_2 {
+  grid-column: 2;
+  grid-row: 1 / 3;  
+}
+
+.activities__picture_3 {
+  grid-column: 2 ;
+  grid-row: 3; 
+}
+
+.activities__picture_4 {
+  grid-column: 3;
+  grid-row: 1; 
+}
+
+.activities__yoga {
+  grid-column: 3;
+  grid-row: 2;  
+}
+
+.activities__picture_5 {
+  grid-column: 3;
+  grid-row: 3; 
+}
+
+.activities__img-h400 {
+  height: 400px;
+}
+
+.activities__img-h450 {
+  height: 450px;
+}
+
+/* contacts */
+
+.contacts {
+  margin-top: 100px;
+  padding-bottom: 250px;
+}
+.contacts__block {
+  display: flex;
+  gap: 125px;
+  justify-content: space-between;
+}
+.contacts__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 600px;
+}
+.contacts__call {
+  font-size: 30px;
+  color: #fff;
+}
+.contacts__number {
+}
+.contacts__tel-link {
+  color: #fff;
+  text-decoration: none;
+}
+
+.contacts__tel {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.contacts__tel-icon {
+  width: 32px;
+  height: 32px;
+}
+.contacts__tel-text {
+}
+
+.contacts__inst-link {
+  color: #fff;
+  text-decoration: none;
+}
+
+.contacts__inst {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.contacts__inst-icon {
+  width: 34px;
+  height: 34px;
+}
+.contacts__inst-text {
+}
+
+.contacts__telegram-link {
+  color: #fff;
+  text-decoration: none;  
+}
+
+.contacts__telegram {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.contacts__telegram-icon {
+  width: 32px;
+  height: 28px;
+}
+.contacts__telegram-text {
+}
+.contacts__call-btn {
+}
+.contacts__call-btn-link {
+  color: #000;
+  text-decoration: none;
+  font-size: 25px;
+  background-color: #FFFEEA;
+  border-radius: 18px;
+  padding: 20px 75px;
+}
+.contacts__farewell {
+  font-size: 30px;
+  color: #fff;
+}
+.contacts__maps {
+}
+.contacts__map {
+  width: 620px;
+  height: 530px;
+  border-radius: 58px;
+  overflow: hidden;
+}
+.contacts__map-descripton {
+}
+.contacts__map-text {
+  font-size: 20px;
+  color: #fff;
+  text-align: center;
+}

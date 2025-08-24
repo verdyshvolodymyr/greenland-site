@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Math&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style/index.css">
+  <link rel="stylesheet" href="./style/normalize.css">
+  <script src="./index.js" defer></script>
+  <title>Green Land</title>
+</head>
+<body>
+  <header class="header">
+    <video autoplay muted loop playsinline  class="hero-video">
+      <source src="./video/gl_video.MP4" type="video/mp4">
+    </video>
+    <div class="container">
+      <nav class="header__nav">
+        <div class="header__logo">
+          <a href="#" class="header__logo-link">
+            <img src="./images/logo.svg" alt="Green Land">
+          </a>
+        </div>
+        <ul class="header__nav-list">
+          <li class="header__nav-item">
+            <a href="#about_us__text" class="header__nav-link">Про нас</a>
+          </li>
+  
+          <li class="header__nav-item">
+            <a href="#rooms" class="header__nav-link">Номери</a>
+          </li>
+  
+          <li class="header__nav-item">
+            <a href="#territory" class="header__nav-link">Зручності</a>
+          </li>
+  
+          <li class="header__nav-item">
+            <a href="#activities" class="header__nav-link">Заходи</a>
+          </li>
+  
+          <li class="header__nav-item">
+            <a href="#actions" class="header__nav-link">Поради</a>
+          </li>
+  
+          <li class="header__nav-item">
+            <a href="#contacts" class="header__nav-link">Контакти</a>
+          </li>
+        </ul>
+        <div class="header__social">
+          <a href="https://www.instagram.com/green_land_bukovel?igsh=cjl4aWkxM3hmc3hj&utm_source=qr" class="header__social-link" target="_blank">
+            <img src="./images/insta.png" alt="instagram">
+          </a>
+  
+          <a href="https://t.me/green_land_bukovel" class="header__social-link" target="_blank">
+            <img src="./images/telegram.png" alt="telegram">
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="about_us">
+    <div class="container">
+      <nav class="header__nav">
+        <div class="header__logo">
+          <a href="#" class="header__logo-link">
+            <img src="./images/logo.svg" alt="Green Land">
+          </a>
+        </div>
+        <ul class="header__nav-list">
+          <li class="header__nav-item">
+            <a href="#about_us__text" class="header__nav-link">Про нас</a>
+          </li>
+  
+          <li class="header__nav-item">
+            <a href="#rooms" class="header__nav-link">Номери</a>
+          </li>
+  
+          <li class="header__nav-item">
+            <a href="#territory" class="header__nav-link">Зручності</a>
+          </li>
+  
+          <li class="header__nav-item">
+            <a href="#activities" class="header__nav-link">Заходи</a>
+          </li>
+  
+          <li class="header__nav-item">
+            <a href="#actions" class="header__nav-link">Поради</a>
+          </li>
+  
+          <li class="header__nav-item">
+            <a href="#contacts" class="header__nav-link">Контакти</a>
+          </li>
+        </ul>
+        <div class="header__social">
+          <a href="https://www.instagram.com/green_land_bukovel?igsh=cjl4aWkxM3hmc3hj&utm_source=qr" class="header__social-link" target="_blank">
+            <img src="./images/insta.png" alt="instagram">
+          </a>
+  
+          <a href="https://t.me/green_land_bukovel" class="header__social-link" target="_blank">
+            <img src="./images/telegram.png" alt="telegram">
+          </a>
+        </div>
+      </nav>
+    </div>
+    <div class="header__nav--line"></div>
+    <div class="container">
+      <p class="about_us__text" id="about_us__text">
+        Green Land - це не просто історія про сучасний готель або стильний барнхаус серед лісу та гір навколо. <br>
+        Це набагато більше… <br> <br>
+  
+        Розташування Green Land настільки зручне, що кожен знайде тут відпочинок до душі. Всі драйвові розваги <br>
+        сучасного курортного Буковеля знаходяться в пішій доступності. Для багатьох наших гостей Green Land став <br>
+        не просто місцем відпочинку, а справжнім місцем сили. Відчувши це одного разу, вони повертаються до нас <br>
+        знову і знову.
+      </p>
+    </div>
+  </section>
+
+  <section class="apartaments">
+    <div class="room-slider" id="rooms">
+      <div class="room-slider__track">
+        <!-- Слайды будут вставлены JS-ом -->
+      </div>
+
+      <button class="room-slider__arrow room-slider__arrow--prev" aria-label="Prev"></button>
+      <button class="room-slider__arrow room-slider__arrow--next" aria-label="Next">
+        <img src="./images/Arrow.svg" alt="">
+      </button>
+
+      <div class="room-slider__dots" aria-label="pagination"></div>
+    </div>
+  </section>
+
+  <section class="territory" id="territory">
+    <div class="container">
+      <h2 class="territory__title">На території Green Land для вас:</h2>
+      <div class="territory__amenities">
+        <div class="territory__amenities-item territory__amenities-item-parking">
+          <img src="./images/amenities/parking.svg" alt="" class="territory__amenities-icon-parking">
+          <p class="territory__amenities-text territory__amenities-text-parking">Безкоштовна <br> парковка</p>
+        </div>
+        <div class="territory__amenities-item territory__amenities-item-wifi">
+          <img src="./images/amenities/wifi.svg" alt="" class="territory__amenities-icon-wifi">
+          <div class="territory__amenities-text-wifi">
+            <p class="territory__amenities-text">Швидкісний Wi-Fi</p>
+          </div>
+        </div>
+        <div class="territory__amenities-item territory__amenities-item-water">
+          <img src="./images/amenities//water.svg" alt="" class="territory__amenities-icon-water">
+          <p class="territory__amenities-text territory__amenities-text-water">Джерельна вода <br> з-під крана</p>
+        </div>
+        <div class="territory__amenities-item territory__amenities-item-rest_place">
+          <img src="./images/amenities/rest_place.svg" alt="" class="territory__amenities-icon-rest_place">
+          <p class="territory__amenities-text territory__amenities-text-rest_place">Зони відпочинку</p>
+        </div>
+      </div>
+      <div class="territory__amenities">
+        <div class="territory__amenities-item territory__amenities-item-grill">
+          <img src="./images/amenities/grill.svg" alt="" class="territory__amenities-icon-grill">
+          <p class="territory__amenities-text">Гриль та мангали</p>
+        </div>
+        <div class="territory__amenities-item territory__amenities-item-tennis">
+          <img src="./images/amenities/tennis.svg" alt="" class="territory__amenities-icon-tennis">
+          <p class="territory__amenities-text territory__amenities-text-tennis">Настільний теніс</p>
+        </div>
+        <div class="territory__amenities-item territory__amenities-item-bicycles">
+          <img src="./images/amenities/bicycles.svg" alt="" class="territory__amenities-icon-bicycles">
+          <p class="territory__amenities-text territory__amenities-text-bicycles">Велосипеди</p>
+        </div>
+        <div class="territory__amenities-item territory__amenities-item-trampoline">
+          <img src="./images/amenities/trampoline.svg" alt="" class="territory__amenities-icon-trampoline">
+          <p class="territory__amenities-text">Батут</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="actions" id="actions">
+    <div class="container">
+      <h2 class="actions__title">Поради для активного відпочинку:</h2>
+      <div class="actions__items">
+        <div class="actions__item">
+          <img src="/images/actions/around.jpg" alt="around" class="actions__img">
+          <p class="actions__descripton">Що поруч</p>
+        </div>
+        <div class="actions__item">
+          <img src="./images/actions/hiking.JPG" alt="hiking" class="actions__img">
+          <p class="actions__descripton">Піші та автомобільні походи</p>
+        </div>
+        <div class="actions__item">
+          <img src="./images/actions/jeep.JPG" alt="jeep" class="actions__img">
+          <p class="actions__descripton">Квадро та джип <br> тури</p>
+        </div>
+        <div class="actions__item">
+          <img src="./images/actions/food.jpg" alt="food" class="actions__img">
+          <p class="actions__descripton">Гасторопоради</p>
+        </div>
+        <div class="actions__item">
+          <img src="./images/actions/horses.jpg" alt="horses" class="actions__img">
+          <p class="actions__descripton">Кінні прогулянки</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="activities" id="activities">
+    <div class="container">
+      <div class="activities__title">Заходи, які відбуваються в Green Land</div>
+      <div class="activities__grid">
+        <div class="activities__gl">
+          <p class="activities__gl-text">
+            Green Land пропонує більше, ніж просто локацію. <br><br>
+            Це простір створений з любов’ю, унікальноюатмосферу для зосередженої роботи,<br> відновлення та натхнення. 
+          </p>
+        </div>
+        <div class="activities__picture_1">
+          <img src="./images/activities/events_1.jpg" alt="" class="activities__img">
+        </div>
+        <div class="activities__picture_2">
+          <img src="./images/activities/events_2.jpg" alt="" class="activities__img">
+        </div>
+        <div class="activities__picture_3">
+          <img src="./images/activities/events_3.jpg" alt="" class="activities__img activities__img-h400">
+        </div>
+        <div class="activities__picture_4">
+          <img src="./images/activities/events_4.jpg" alt="" class="activities__img activities__img-h400">
+        </div>
+        <div class="activities__picture_5">
+          <img src="./images/activities/events_5.jpg" alt="" class="activities__img activities__img-h400">
+        </div>
+        <div class="activities__yoga">
+          <p class="activities__yoga-text">
+            Йога-семінари, тренінги, ретрити, заходи з відновлення та реабілітації військовослужбовців <br><br>
+            Щоб організувати власну подію — просто напишіть або зателефонуйте нам.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contacts" id="contacts">
+    <div class="container">
+      <div class="contacts__block">
+        <div class="contacts__info">
+          <h2 class="contacts__call">Зв'яжіться з нами вже зараз !</h2>
+          <div class="contacts__number">
+            <a href="tel:+380502487127" class="contacts__tel-link">
+              <div class="contacts__tel">
+                <img src="./images/phone.png" alt="" class="contacts__tel-icon">
+                <p class="contacts__tel-text"> +380502487127</p>
+              </div>
+            </a>
+            <a href="https://www.instagram.com/green_land_bukovel?igsh=cjl4aWkxM3hmc3hj&utm_source=qr" class="contacts__inst-link" target="_blank">
+              <div class="contacts__inst">
+                <img src="./images/insta.png" alt="" class="contacts__inst-icon">
+                <p class="contacts__inst-text">@green_land_bukovel</p>
+              </div>
+            </a>
+            <a href="https://t.me/green_land_bukovel" class="contacts__telegram-link" target="_blank">
+              <div class="contacts__telegram">
+                <img src="./images/telegram.png" alt="" class="contacts__telegram-icon">
+                <p class="contacts__telegram-text"> +380502487127</p>
+              </div>
+            </a>
+          </div>
+
+          <div class="contacts__call-btn">
+            <a href="https://booking-117473.otelms.com/booking/rooms" class="contacts__call-btn-link" target="_blank">Забронювати номер</a>
+          </div>
+
+          <h2 class="contacts__farewell">До зустрічі в горах — Green Land !</h2>
+        </div>
+        <div class="contacts__maps">
+          <div class="contacts__map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2651.8328547892697!2d24.429398377205434!3d48.34451797126717!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4737194a4571390f%3A0xd9efb4c32cf13c17!2z0KjQsNC70LUgR3JlZW4gTGFuZA!5e0!3m2!1sru!2sua!4v1756044204393!5m2!1sru!2sua" width="620" height="530" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+          <div class="contacts__map-descripton">
+            <p class="contacts__map-text">вулиця Росиш, Поляниця, Івано-Франківська область, 78593 <br>
+              можливий трансфер</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
