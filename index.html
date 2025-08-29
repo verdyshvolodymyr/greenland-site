@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Math&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./style/index.css">
   <link rel="stylesheet" href="./style/normalize.css">
+  <link rel="icon" href="/images/logo.svg" type="image/svg">
   <script src="./index.js" defer></script>
   <title>Green Land</title>
 </head>
@@ -50,11 +51,11 @@
         </ul>
         <div class="header__social">
           <a href="https://www.instagram.com/green_land_bukovel?igsh=cjl4aWkxM3hmc3hj&utm_source=qr" class="header__social-link" target="_blank">
-            <img src="./images/insta.png" alt="instagram">
+            <img src="./images/insta.svg" alt="instagram">
           </a>
   
           <a href="https://t.me/green_land_bukovel" class="header__social-link" target="_blank">
-            <img src="./images/telegram.png" alt="telegram">
+            <img class="social-icon" src="./images/telegram.svg" alt="telegram">
           </a>
         </div>
       </nav>
@@ -119,18 +120,100 @@
     </div>
   </section>
 
-  <section class="apartaments">
-    <div class="room-slider" id="rooms">
-      <div class="room-slider__track">
-        <!-- Слайды будут вставлены JS-ом -->
+  <section class="section" id="rooms">
+    <div class="carousel" id="carousel">
+      <div class="stack" id="stack">
+        <!-- Слайды. Можно добавлять/удалять — логика сама подхватит. -->
+        <article class="slide" data-title="Room #1"
+                data-text="Гості: до 3 осіб
+                  Другий поверх
+                  Оснащення: балкон, вікно‑ліжко, велика спільна кухня з зоною відпочинку."
+                data-link="#room1">
+          <figure class="media">
+            <img src="./images/apart/room_1.png" alt="Room 1">
+          </figure>
+          <div class="content">
+            <h2 class="h1"></h2>
+            <p class="p"></p>
+            <a href="https://booking-117473.otelms.com/booking/rooms" target="_blank">
+              <button class="btn">Бронювати</button>
+            </a>
+          </div>
+        </article>
+
+        <article class="slide" data-title="Room #2"
+                data-text="Гості: до 2 осіб
+                  Панорамні вікна, тераса, камін."
+                data-link="#room2">
+          <figure class="media">
+            <img src="./images/apart/room_2.png" alt="Room 2">
+          </figure>
+          <div class="content">
+            <h2 class="h1"></h2>
+            <p class="p"></p>
+            <a href="https://booking-117473.otelms.com/booking/rooms" target="_blank">
+              <button class="btn">Бронювати</button>
+            </a>
+          </div>
+        </article>
+
+        <article class="slide" data-title="Room #3"
+                data-text="Гості: до 4 осіб
+                  Двоспальне ліжко + диван, вид на гори."
+                data-link="#room3">
+          <figure class="media">
+            <img src="./images/apart/room_3.png" alt="Room 3">
+          </figure>
+          <div class="content">
+            <h2 class="h1"></h2>
+            <p class="p"></p>
+            <a href="https://booking-117473.otelms.com/booking/rooms" target="_blank">
+              <button class="btn">Бронювати</button>
+            </a>
+          </div>
+        </article>
+
+        <article class="slide" data-title="Room #4"
+                data-text="Гості: до 5 осіб
+                  Балкон, кухня‑studio, близько до SPA."
+                data-link="#room4">
+          <figure class="media">
+            <img src="./images/apart/room_1.png" alt="Room 4">
+          </figure>
+          <div class="content">
+            <h2 class="h1"></h2>
+            <p class="p"></p>
+            <a href="https://booking-117473.otelms.com/booking/rooms" target="_blank">
+              <button class="btn">Бронювати</button>
+            </a>
+          </div>
+        </article>
+
+        <article class="slide" data-title="Room #5"
+                data-text="Гості: до 3 осіб
+                  Сосновий інтерʼєр, власна тераса."
+                data-link="#room5">
+          <figure class="media">
+            <img src="./images/apart/room_2.png" alt="Room 5">
+          </figure>
+          <div class="content">
+            <h2 class="h1"></h2>
+            <p class="p"></p>
+            <a href="https://booking-117473.otelms.com/booking/rooms" target="_blank">
+              <button class="btn">Бронювати</button>
+            </a>
+          </div>
+        </article>
       </div>
 
-      <button class="room-slider__arrow room-slider__arrow--prev" aria-label="Prev"></button>
-      <button class="room-slider__arrow room-slider__arrow--next" aria-label="Next">
-        <img src="./images/Arrow.svg" alt="">
-      </button>
-
-      <div class="room-slider__dots" aria-label="pagination"></div>
+      <div class="nav">
+        <button class="arrow" data-dir="prev" aria-label="Previous">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M15 18l-6-6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="arrow" data-dir="next" aria-label="Next">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 18l6-6-6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
     </div>
   </section>
 
@@ -182,10 +265,13 @@
     <div class="container">
       <h2 class="actions__title">Поради для активного відпочинку:</h2>
       <div class="actions__items">
-        <div class="actions__item">
-          <img src="./images/actions/around.jpg" alt="around" class="actions__img">
-          <p class="actions__descripton">Що поруч</p>
-        </div>
+        <!-- тут сделал тест со скачиваем пдф файла -->
+        <a href="./typescript_classes_cheatsheet.pdf" download="Маршрут-GL.pdf"> 
+          <div class="actions__item">
+            <img src="./images/actions/around.jpg" alt="around" class="actions__img">
+            <p class="actions__descripton">Що поруч</p>
+          </div>
+        </a>
         <div class="actions__item">
           <img src="./images/actions/hiking.JPG" alt="hiking" class="actions__img">
           <p class="actions__descripton">Піші та автомобільні походи</p>

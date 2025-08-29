@@ -1,97 +1,53 @@
-const slides = [
-  {
-    title: "Room #1",
-    meta: [
-      "Гості: до 3 осіб",
-      "Другий поверх",
-      "Оснащення: балкон, вікно‑ліжко, <br/> велика спільна кухня з зоною відпочинку."
-    ],
-    ctaText: "Бронювати",
-    ctaHref: "https://booking-117473.otelms.com/booking/rooms",
-    // три изображения для “стопки” (можно оставить одно — остальные убрать)
-    images: [
-      "./images/apart/room_1.png"
-    ]
-  },
-  {
-    title: "Room #2",
-    meta: ["Гості: до 4 осіб", "Перший поверх", "Оснащення: тераса, панорамні вікна."],
-    ctaText: "Бронювати",
-    ctaHref: "https://booking-117473.otelms.com/booking/rooms",
-    images: ["./images/apart/room_2.png"]
-  },
-  {
-    title: "Room #3",
-    meta: ["Гості: до 2 осіб", "Другий поверх", "Оснащення: вид на гори, зручне робоче місце."],
-    ctaText: "Бронювати",
-    ctaHref: "https://booking-117473.otelms.com/booking/rooms",
-    images: ["./images/apart/room_3.png"]
-  },
-];
-
-const track = document.querySelector(".room-slider__track");
-const dotsWrap = document.querySelector(".room-slider__dots");
-const btnPrev = document.querySelector(".room-slider__arrow--prev");
-const btnNext = document.querySelector(".room-slider__arrow--next");
-
-function slideMarkup(s){
-  const [main, mid, back] = s.images;
-  const meta = s.meta.map(m=>`<div>${m}</div>`).join("");
-  return `
-    <article class="room-slide">
-      <div class="room-slide__media">
-        ${back ? `<img class="room-slide__img room-slide__img--back" src="${back}" alt="">` : ""}
-        ${mid ? `<img class="room-slide__img room-slide__img--mid" src="${mid}" alt="">` : ""}
-        <img class="room-slide__img" src="${main}" alt="${s.title}">
-      </div>
-      <div class="room-slide__content">
-        <h3>${s.title}</h3>
-        <div class="room-slide__meta">${meta}</div>
-        <a class="room-slide__btn" href="${s.ctaHref}" target="_blank" rel="noopener">${s.ctaText}</a>
-      </div>
-    </article>
-  `;
-}
-
-function render(){
-  track.innerHTML = slides.map(slideMarkup).join("");
-  dotsWrap.innerHTML = slides.map((_,i)=>`<button class="room-slider__dot" data-i="${i}" aria-label="Go to ${i+1}"></button>`).join("");
-}
-render();
-
-const dots = Array.from(dotsWrap.children);
+const byId = id => document.getElementById(id);
+const $stack = byId('stack');
+const $slides = Array.from($stack.querySelectorAll('.slide'));
+const N = $slides.length;
 let index = 0;
-function go(i){
-  index = (i+slides.length) % slides.length;
-  track.style.transform = `translateX(-${index*100}%)`;
-  dots.forEach((d,di)=>d.classList.toggle("is-active", di===index));
+
+// заполнить тексты из data-*
+$slides.forEach(sl => {
+  const t = sl.dataset.title || '';
+  const txt = sl.dataset.text || '';
+  sl.querySelector('.h1').textContent = t;
+  sl.querySelector('.p').textContent = txt;
+  const link = sl.dataset.link;
+  if (link) sl.querySelector('.btn').onclick = () => location.href = link;
+});
+
+function mod(i, m){ return (i % m + m) % m; }
+
+function applyClasses() {
+  // Сбрасываем
+  $slides.forEach(sl => sl.className = 'slide is-hidden');
+
+  // Три видимых слоя: левый(размытый), текущий, правый(размытый)
+  const left  = $slides[mod(index-1, N)];
+  const curr  = $slides[index];
+  const right = $slides[mod(index+1, N)];
+
+  left.classList.add('is-left');  left.classList.remove('is-hidden');
+  curr.classList.add('is-current'); curr.classList.remove('is-hidden');
+  right.classList.add('is-right'); right.classList.remove('is-hidden');
 }
-go(0);
 
-btnPrev.addEventListener("click", ()=>go(index-1));
-btnNext.addEventListener("click", ()=>go(index+1));
-dotsWrap.addEventListener("click", e=>{
-  const b = e.target.closest(".room-slider__dot");
-  if(!b) return;
-  go(+b.dataset.i);
+function go(dir=1){
+  index = mod(index + dir, N);
+  applyClasses();
+}
+
+// навигация
+document.querySelector('[data-dir="prev"]').addEventListener('click', () => go(-1));
+document.querySelector('[data-dir="next"]').addEventListener('click', () => go(+1));
+
+// свайпы на мобильном
+let startX = 0;
+$stack.addEventListener('pointerdown', e => startX = e.clientX);
+$stack.addEventListener('pointerup',   e => {
+  const dx = e.clientX - startX;
+  if (Math.abs(dx) > 50) {
+    go(dx > 0 ? -1 : +1);
+  }
 });
 
-/* Клавиатура */
-window.addEventListener("keydown", e=>{
-  if(e.key === "ArrowLeft") go(index-1);
-  if(e.key === "ArrowRight") go(index+1);
-});
-
-/* Свайпы (тач) */
-let startX = 0, isTouch=false;
-track.addEventListener("touchstart", e=>{ isTouch=true; startX = e.touches[0].clientX; }, {passive:true});
-track.addEventListener("touchmove", e=>{
-  if(!isTouch) return;
-  const dx = e.touches[0].clientX - startX;
-  if(Math.abs(dx) > 50){ go(index + (dx<0?1:-1)); isTouch=false; }
-}, {passive:true});
-track.addEventListener("touchend", ()=>{ isTouch=false; });
-
-/* Автоподгон высоты (если контент разной высоты) — по желанию
-   Можно добавить: .room-slider { height: auto } — тут всё флюидно
-*/
+// init
+applyClasses();
