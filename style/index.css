@@ -359,11 +359,33 @@ a svg {
 /* actions */
 
 .actions__title {
-  font-size: 32px;
-  color: #fff;
   text-align: center;
   margin-top: 110px;
   margin-bottom: 40px;
+}
+
+.actions__title-link {
+  font-size: 32px;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+
+  position: relative;
+}
+
+.actions__title-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background-color: #fff;
+  transition: width 0.3s ease;
+}
+
+.actions__title-link:hover::after {
+  width: 100%;
 }
 
 .actions__items {
@@ -504,7 +526,7 @@ a svg {
 
 .contacts {
   margin-top: 100px;
-  padding-bottom: 250px;
+  padding-bottom: 50px;
 }
 .contacts__block {
   display: flex;
