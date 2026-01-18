@@ -98,3 +98,43 @@ $stack.addEventListener('pointerup', (e) => {
 // ===== init =====
 hydrateSlides();
 applyClasses();
+
+
+(function () {
+    const burger = document.querySelector('.burger');
+    const menu = document.querySelector('.mobile-menu');
+    const overlay = document.querySelector('.menu-overlay');
+    const closeBtn = document.querySelector('.mobile-menu__close');
+    const links = document.querySelectorAll('.mobile-menu__link');
+
+    if (!burger || !menu || !overlay || !closeBtn) return;
+
+    function openMenu() {
+      menu.classList.add('is-open');
+      overlay.hidden = false;
+      menu.setAttribute('aria-hidden', 'false');
+      burger.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      menu.classList.remove('is-open');
+      overlay.hidden = true;
+      menu.setAttribute('aria-hidden', 'true');
+      burger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    burger.addEventListener('click', () => {
+      menu.classList.contains('is-open') ? closeMenu() : openMenu();
+    });
+
+    closeBtn.addEventListener('click', closeMenu);
+    overlay.addEventListener('click', closeMenu);
+
+    links.forEach(link => link.addEventListener('click', closeMenu));
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMenu();
+    });
+  })();

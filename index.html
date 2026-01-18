@@ -19,6 +19,28 @@
     </video>
     <div class="container">
       <nav class="header__nav">
+        <button class="burger" type="button" aria-label="Відкрити меню">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <!-- OVERLAY -->
+        <div class="menu-overlay" hidden></div>
+
+        <!-- MOBILE MENU -->
+        <nav class="mobile-menu" id="mobileMenu" aria-hidden="true">
+          <button class="mobile-menu__close" type="button" aria-label="Закрити меню">✕</button>
+
+          <ul class="mobile-menu__list">
+            <li><a class="mobile-menu__link" href="#about">Про нас</a></li>
+            <li><a class="mobile-menu__link" href="#rooms">Номери</a></li>
+            <li><a class="mobile-menu__link" href="#territory">Зручності</a></li>
+            <li><a class="mobile-menu__link" href="#events">Заходи</a></li>
+            <li><a class="mobile-menu__link" href="#tips">Поради</a></li>
+            <li><a class="mobile-menu__link" href="#contacts">Контакти</a></li>
+          </ul>
+        </nav>
         <div class="header__logo">
             <img class="header__logo-img" src="./images/logo.svg" alt="Green Land">
         </div>
@@ -105,18 +127,25 @@
     <div class="header__nav--line"></div>
     <div class="container">
       <p class="about_us__text" id="about_us__text">
-        Green Land - це не просто історія про сучасний готель або стильний барнхаус серед лісу та гір навколо. <br>
-        Це набагато більше… <br> <br>
-  
-        Розташування Green Land настільки зручне, що кожен знайде тут відпочинок до душі. Всі драйвові розваги <br>
-        сучасного курортного Буковеля знаходяться в пішій доступності. Для багатьох наших гостей Green Land став <br>
-        не просто місцем відпочинку, а справжнім місцем сили. Відчувши це одного разу, вони повертаються до нас <br>
-        знову і знову.
+        Історія Green Land - не просто про сучасний готель серед лісу та гір навколо. А набагато більше…  Це простір, де кожен гість має можливість зануритися в природну тишу та відчути себе справжнього. <br><br>
+        Розташування Green Land поєднує активність та спокій. Всі драйвові розваги сучасного курортного Буковеля знаходяться в пішій доступності. <br><br>
+        Водночас, можна просто побути в тиші та насолодитись неймовірними гірськими краєвидами або прогулятись затишними лісовими стежками. <br><br>
+        Для багатьох наших гостей Green Land став не просто місцем відпочинку, а справжнім місцем сили. Відчувши це одного разу, вони повертаються знову і знову.
+      </p>
+      <p class="about_us__text">
+        ❤️ Загальна Інформація та Сервіс <br> <br>
+        •	Час Заїзду/Виїзду: Ми раді вітати вас з 15:00 години. Просимо звільнити апартаменти до 11:00 години. <br> <br>
+        •	Індивідуальний Підхід: Ви завжди можете залишити речі до заселення чи після виїзду. Якщо є можливість, ми з радістю заселимо вас раніше або дозволимо виїхати пізніше за стандартний час. <br> <br>
+        •	Тварини: Проживання з невеличкими та чемними тваринами дозволено за попередньою домовленістю. <br> <br>
+        •	Тихий Відпочинок: Щоб забезпечити ідеальний відпочинок для всіх наших гостей, у нас діють умови тихого поводження. Дякуємо за повагу! <br> <br>
+        •	Бронювання та Гарантія: Бронювання здійснюється за умови внесення передоплати на рахунок в розмірі вартості першої доби проживання. У разі скасування вами бронювання раніше ніж за 7 днів до заїзду, ми повністю повертаємо цю суму. <br> <br>
+        •	Трансфер: До ваших послуг в нас є свій комфортний бус, який вміщає одночасно до 7ми гостей. Просто повідомте нам заздалегідь, і ми організуємо вашу поїздку!
+
       </p>
     </div>
   </section>
 
-  <section class="section" id="rooms">
+  <section class="section" id="rooms">`
     <div class="carousel" id="carousel">
       <div class="stack" id="stack">
         <!-- Слайды. Можно добавлять/удалять — логика сама подхватит. -->
@@ -199,15 +228,15 @@
         <article class="slide" data-title="Room #6"
                 data-text="Гості: до 3 осіб
                   Сосновий інтерʼєр, власна тераса."
-                data-link="#room6"
-                data-booking="#room6">
+                data-link="./pages/room_6/room_6.html"
+                data-booking="./pages/room_6/room_6.html">
           <figure class="media">
             <img src="./images/apart_for_main_slider/room_6.jpg" alt="Room 6">
           </figure>
           <div class="content">
             <h2 class="h1"></h2>
             <p class="p"></p>
-              <button class="btn">В процесі...</button>
+              <button class="btn">Детальніше...</button>
           </div>
         </article>
 
@@ -367,7 +396,7 @@
           <div class="actions__item">
             <img src="./images/actions/jeep.JPG" alt="jeep" class="actions__img">
             <p class="actions__descripton">
-              Квадро та джип <br> тури
+              Квадро та джип 
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
                 xmlns="http://www.w3.org/2000/svg" class="icon">
                 <path d="M12 3v12m0 0l-5-5m5 5l5-5M5 19h14"
