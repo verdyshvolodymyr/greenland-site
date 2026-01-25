@@ -773,24 +773,31 @@ a svg {
   }
 
   .slide{
-    position:absolute; inset:0;
-    display:grid; grid-template-columns: 58% 42%;
+    position:absolute;
+    inset:0;
+    display:grid;
+    grid-template-columns: 58% 42%;
     gap:32px;
     padding:24px 28px;
     border-radius: var(--radius);
     background: #12281F;
     box-shadow: var(--shadow);
-    overflow:hidden;
+    overflow: hidden;
     transform: translateX(0) scale(1);
     transition: transform .6s ease, opacity .6s ease, filter .6s ease, z-index .6s ease;
   }
 
   .media{
     border-radius: calc(var(--radius) - 6px);
-    overflow:hidden;
-    height:100%;
+    overflow: hidden;
+    height: 100%;
   }
-  .media img{width:100%; height:100%; object-fit:cover; display:block;}
+  .media img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
 
   .content{
     display:flex; flex-direction:column; justify-content:center;
@@ -843,9 +850,9 @@ a svg {
 
   /* Адаптив */
 
-  /* @media (hover: hover) and (pointer: fine) {
+  @media (hover: hover) and (pointer: fine) {
   .arrow:hover{ background:#E6EBDD1a; border-color:#E6EBDD99; }
-} */
+}
 
 @media (hover: none) and (pointer: coarse) {
   :root{
@@ -867,42 +874,297 @@ a svg {
     .h1{ font-size:28px; }
     .p{ font-size:16px; }
   }
-  
-@media (min-width: 1200px) and (max-width: 1450px) {
-  :root {
-     --gap:70px;
-  }
 
+@media (max-width: 610px) {
   .container {
-    max-width: 1350px;
-    padding: 0 5px;
-  }
-
-  .about_us__text {
-    max-width: 900px;
-    padding-left: 175px;
-}
-
-  .actions__item {
-    max-width: 257px;
-  }
-
-  .actions__img {
-    max-width: 257px;
-    max-height: 300px;
+    padding: 0 15px;
   }
 
   .activities__img {
-    width: 370px;
+    max-width: 190px;
+    max-height: 300px;
   }
 
-  .activities__grid {
-    gap: 20px;
-    grid-template-columns: repeat(3, calc((100% - 40px) / 3));
+  .activities__gl-text {
+    font-size: 14px;
+  } 
+
+  .activities__yoga-text {
+    font-size: 14px;
+  }
+
+}
+
+@media (min-width: 768px) and (hover: none) {
+  *:hover {
+    color: none;
+    box-shadow: none;
+    transform: none;
+  }
+
+  .contacts__tel:hover {
+  transform: none;
+  color: #fff;
+  }
+
+  .contacts__inst:hover {
+  transform: none;
+  color: #fff;
+  }
+
+  .header__nav-link:hover::after {
+  width: 0%;
+  }
+
+  .header__social-link:hover {
+  filter: none;
+  }
+
+  .actions__title-link:hover::after {
+  width: 0%;
   }
 
   .actions__descripton:hover::after {
-  width: 75%;
+  width: 0%;
+  }
+
+  .contacts__call-btn-link:hover {
+  background-color: #FFFEEA;
+  }
+
+  .about_us__text {
+    max-width: 600px;
+    padding-left: 70px;
+  }
+
+  .content {
+    padding: 6px 6px 30px;
+  }
+
+  .h1 {
+    margin: 0 0 10px;
+  }
+
+  .p {
+    font-size: 10px;
+  }
+
+  .territory__amenities {
+    max-width: 650px;
+  }
+
+  .activities__gl {
+    padding-left: 40px;
+  }
+}
+  
+@media (min-width: 800px) and (hover: none) {
+  .about_us__text {
+    max-width: 700px;
+    padding-left: 40px;
+  }
+
+  *:hover {
+    color: none;
+    box-shadow: none;
+    transform: none;
+  }
+
+  .contacts__tel:hover {
+  transform: none;
+  color: #fff;
+  }
+
+  .contacts__inst:hover {
+  transform: none;
+  color: #fff;
+  }
+
+  .header__nav-link:hover::after {
+  width: 0%;
+  }
+
+  .header__social-link:hover {
+  filter: none;
+  }
+
+  .actions__title-link:hover::after {
+  width: 0%;
+  }
+
+  .actions__descripton:hover::after {
+  width: 0%;
+  }
+
+  .contacts__call-btn-link:hover {
+  background-color: #FFFEEA;
+  }
+
+  .h1 {
+    font-size: 32px;
+  }
+
+  .territory__amenities {
+    justify-content: space-between;
+    max-width: 700px;
+  }
+}
+
+@media (max-width: 768.98px) {
+  .container {
+    padding: 0 15px;
+  }
+
+  .header__nav-list {
+    display: none;
+  }
+
+  .header__logo-img {
+    width: 150px;
+  }
+
+  .burger {
+    display: inline-flex;
+  }
+
+  .header__nav {
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .header__logo {
+    width: 70px;
+    grid-column: 2;
+  }
+
+  .header__social {
+    grid-column: 3;
+    justify-self: end;
+  }
+
+  .actions__items{
+    display: grid;
+    grid-template-columns: repeat(2, 210px);
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .actions__items > a:nth-child(5){
+    padding-left: 110px;
+    width: 100%;
+  }
+
+  .activities__grid {
+    gap: 15px;
+    grid-template-columns: repeat(2, calc((100%) / 2));
+  }
+
+  .activities__img {
+    max-width: 300px;
+    max-height: 400px;
+  }
+
+  .activities__picture_2 {
+    grid-row: 1 / 2;
+  }
+
+  .activities__picture_1 {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .activities__picture_3 {
+    display: none;
+  }
+
+  .activities__picture_4 {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .activities__picture_5 {
+    grid-column: 2;
+    grid-row: 3;
+  }
+
+  .activities__yoga {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  :root { 
+    --w: 500px;
+    --gap: 30px;
+  }
+
+  .contacts__block {
+    display: block;
+}
+
+  .contacts__info {
+    margin: 0 auto;
+  }
+
+  .contacts__map {
+    margin: 0 auto;
+  }
+
+  .contacts__number {
+    margin-bottom: 30px;
+  }
+
+  .contacts__call-btn {
+    margin-bottom: 30px;
+  }
+  
+  .territory__amenities-item-wifi {
+    margin-left: 0;
+  }
+
+  .territory__amenities-item-water {
+    margin-left: 0;
+  }
+
+  .territory__amenities-item-rest_place {
+    margin-left: 0;
+  }
+
+  .territory__amenities-item-grill {
+    margin-left: 0;
+  }
+
+  .territory__amenities-item-tennis {
+    margin-left: 0;
+  }
+
+  .territory__amenities-item-bicycles {
+    margin-left: 0;
+  }
+
+  .territory__amenities-item-trampoline {
+    margin-left: 0;
+  }
+
+  .territory__amenities {
+    justify-content: space-between;
+  }
+  
+  .h1 {
+    font-size: 27px;
+    text-align: center;
+  }
+
+  .p {
+    font-size: 12px;
+    width: 200px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+  }
+
+  .btn {
+    margin: 0 auto;
+    font-size: 14px;
   }
 }
 
@@ -1049,191 +1311,111 @@ a svg {
   }
 }
 
-@media (max-width: 768.98px) {
-  .container {
-    padding: 0 15px;
+@media (min-width: 1024px) and (hover: none) {
+  *:hover {
+    color: none;
+    box-shadow: none;
+    transform: none;
   }
 
-  .header__nav-list {
-    display: none;
+  .contacts__tel:hover {
+  transform: none;
+  color: #fff;
   }
 
-  .header__logo-img {
-    width: 150px;
+  .contacts__inst:hover {
+  transform: none;
+  color: #fff;
   }
 
-  .burger {
-    display: inline-flex;
+  .header__nav-link:hover::after {
+  width: 0%;
   }
 
-  .header__nav {
-    display: grid;
-    gap: 15px;
-    grid-template-columns: repeat(3, 1fr);
+  .header__social-link:hover {
+  filter: none;
   }
 
-  .header__logo {
-    width: 70px;
-    grid-column: 2;
+  .actions__title-link:hover::after {
+  width: 0%;
   }
 
-  .header__social {
-    grid-column: 3;
-    justify-self: end;
+  .actions__descripton:hover::after {
+  width: 0%;
   }
 
-  .about_us__text {
-    padding-left: 25px;
-  }
-
-  .actions__items{
-    display: grid;
-    grid-template-columns: repeat(2, 210px);
-    gap: 20px;
-    justify-content: center;
-  }
-
-  .actions__items > a:nth-child(5){
-    padding-left: 110px;
-    width: 100%;
-  }
-
-  .activities__grid {
-    gap: 15px;
-    grid-template-columns: repeat(2, calc((100%) / 2));
-  }
-
-  .activities__img {
-    max-width: 300px;
-    max-height: 400px;
-  }
-
-  .activities__picture_2 {
-    grid-row: 1 / 2;
-  }
-
-  .activities__picture_1 {
-    grid-column: 1;
-    grid-row: 3;
-  }
-
-  .activities__picture_3 {
-    display: none;
-  }
-
-  .activities__picture_4 {
-    grid-column: 1;
-    grid-row: 2;
-  }
-
-  .activities__picture_5 {
-    grid-column: 2;
-    grid-row: 3;
-  }
-
-  .activities__yoga {
-    grid-column: 2;
-    grid-row: 2;
+  .contacts__call-btn-link:hover {
+  background-color: #FFFEEA;
   }
 
   :root { 
-    --w: 500px;
-    --gap: 30px;
-  }
-
-  .contacts__block {
-    display: block;
-}
-
-  .contacts__info {
-    margin: 0 auto;
-  }
-
-  .contacts__map {
-    margin: 0 auto;
-  }
-
-  .contacts__number {
-    margin-bottom: 30px;
-  }
-
-  .contacts__call-btn {
-    margin-bottom: 30px;
+    --w: 700px;
+    --gap: 135px;
   }
   
-  .territory__amenities-item-wifi {
-    margin-left: 0;
+  .about_us__text {
+    max-width: 850px;
+    padding-left: 65px;
   }
 
-  .territory__amenities-item-water {
-    margin-left: 0;
-  }
-
-  .territory__amenities-item-rest_place {
-    margin-left: 0;
-  }
-
-  .territory__amenities-item-grill {
-    margin-left: 0;
-  }
-
-  .territory__amenities-item-tennis {
-    margin-left: 0;
-  }
-
-  .territory__amenities-item-bicycles {
-    margin-left: 0;
-  }
-
-  .territory__amenities-item-trampoline {
-    margin-left: 0;
+  .h1 {
+    font-size: 32px;
   }
 
   .territory__amenities {
     justify-content: space-between;
-  }
-  
-  .h1 {
-    font-size: 27px;
-    text-align: center;
-  }
-
-  .p {
-    font-size: 12px;
-    width: 200px;
-    margin: 0 auto;
-    margin-bottom: 10px;
-  }
-
-  .btn {
-    margin: 0 auto;
-    font-size: 14px;
+    max-width: 800px;
   }
 }
 
-@media (max-width: 610px) {
-  .container {
-    padding: 0 15px;
+@media (min-width: 1200px) and (max-width: 1450px) {
+  :root {
+     --gap:70px;
   }
 
-  .activities__img {
-    max-width: 190px;
+  .container {
+    max-width: 1350px;
+    padding: 0 10px;
+  }
+
+  .about_us__text {
+    max-width: 900px;
+    padding-left: 175px;
+}
+
+  .actions__item {
+    max-width: 257px;
+  }
+
+  .actions__img {
+    max-width: 257px;
     max-height: 300px;
   }
 
-  .activities__gl-text {
-    font-size: 14px;
-  } 
-
-  .activities__yoga-text {
-    font-size: 14px;
+  .activities__img {
+    width: 370px;
   }
 
+  .activities__grid {
+    gap: 20px;
+    grid-template-columns: repeat(3, calc((100% - 40px) / 3));
+  }
+
+  .actions__descripton:hover::after {
+  width: 75%;
+  }
+}
+
+@media (min-width: 1180px) and (hover: none) {
+  .about_us__text {
+    max-width: 800px;
+    padding-left: 150px;
+  }
 }
 
 @media (min-width: 1360px) and (hover: none) {
 
-    *:hover {
+  *:hover {
     color: none;
     box-shadow: none;
     transform: none;
@@ -1356,5 +1538,197 @@ a svg {
   color: #fff;
   }
 
-} 
- 
+  .header__nav-link:hover::after {
+  width: 0%;
+  }
+
+  .header__social-link:hover {
+  filter: none;
+  }
+
+  .actions__title-link:hover::after {
+  width: 0%;
+  }
+
+  .actions__descripton:hover::after {
+  width: 0%;
+  }
+
+  .contacts__call-btn-link:hover {
+  background-color: #FFFEEA;
+  }
+}
+
+@media (max-width: 430px) and (hover: none) {
+  *:hover {
+    color: none;
+    box-shadow: none;
+    transform: none;
+  }
+
+  .contacts__tel:hover {
+  transform: none;
+  color: #fff;
+  }
+
+  .contacts__inst:hover {
+  transform: none;
+  color: #fff;
+  }
+
+  .header__nav-link:hover::after {
+  width: 0%;
+  }
+
+  .header__social-link:hover {
+  filter: none;
+  }
+
+  .actions__title-link:hover::after {
+  width: 0%;
+  }
+
+  .actions__descripton:hover::after {
+  width: 0%;
+  }
+
+  .contacts__call-btn-link:hover {
+  background-color: #FFFEEA;
+  }
+
+  .header__logo-img {
+    width: 110px;
+  }
+
+  .header__social img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .header__social-link {
+    margin-left: 15px;
+  }
+
+  .about_us__text {
+    max-width: 350px;
+    padding-left: 45px;
+  }
+
+  .content {
+    padding: 6px 6px 30px;
+  }
+
+  .h1 {
+    margin: 0 0 10px;
+  }
+
+  .p {
+    font-size: 10px;
+  }
+
+  .territory__amenities-text {
+    font-size: 10px;
+  }
+
+  .territory__amenities-icon-parking {
+    width: 65px;
+  }
+
+  .territory__amenities-icon-wifi {
+    width: 60px;
+  }
+
+  .territory__amenities-icon-water {
+    width: 115px;
+  }
+
+  .territory__amenities-icon-rest_place {
+    width: 89px;
+  }
+
+  .territory__amenities-icon-grill {
+    width: 65px;
+  }
+
+  .territory__amenities-icon-tennis {
+    width: 120px;
+  }
+
+  .territory__amenities-icon-bicycles {
+    width: 90px;
+  }
+
+  .territory__amenities-icon-trampoline {
+    width: 80px;
+  }
+
+  .territory__amenities {
+    max-width: 380px;
+  }
+
+  .actions__items {
+    grid-template-columns: repeat(1, 210px);
+    gap: 10px;
+  }
+
+  .actions__items > a:nth-child(5) {
+    padding-left: 0px;
+  }
+
+  .activities__img {
+    width: 165px;
+  }
+
+  .contacts__call {
+    text-align: center;
+  }
+
+  .contacts__farewell {
+    text-align: center;
+  }
+}
+
+@media (max-width: 390px) and (hover: none) {
+  .about_us__text {
+    max-width: 300px;
+    padding-left: 35px;
+    font-size: 16px;
+  }
+
+  .territory__amenities-icon-parking {
+    width: 60px;
+  }
+
+  .territory__amenities-icon-wifi {
+    width: 55px;
+  }
+
+  .territory__amenities-icon-water {
+    width: 110px;
+  }
+
+  .territory__amenities-icon-rest_place {
+    width: 84px;
+  }
+
+  .territory__amenities-icon-grill {
+    width: 60px;
+  }
+
+  .territory__amenities-icon-tennis {
+    width: 115px;
+  }
+
+  .territory__amenities-icon-bicycles {
+    width: 85px;
+  }
+
+  .territory__amenities-icon-trampoline {
+    width: 75px;
+  }
+
+  .contacts__call-btn-link {
+    padding: 20px 45px;
+  }
+
+}
