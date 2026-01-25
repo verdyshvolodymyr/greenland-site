@@ -843,9 +843,9 @@ a svg {
 
   /* Адаптив */
 
-  @media (hover: hover) and (pointer: fine) {
+  /* @media (hover: hover) and (pointer: fine) {
   .arrow:hover{ background:#E6EBDD1a; border-color:#E6EBDD99; }
-}
+} */
 
 @media (hover: none) and (pointer: coarse) {
   :root{
@@ -855,7 +855,6 @@ a svg {
 
   .is-left  { transform: translateX(calc(-1 * var(--gap))) scale(.92); } /* без rotateY */
   .is-right { transform: translateX(var(--gap)) scale(.92); }            /* без rotateY */
-  .stack{ perspective: none; } /* убираем 3D */
 }
 
   @media (max-width: 980px){
@@ -1257,10 +1256,6 @@ a svg {
   .header__social-link {
     margin-left: 20px;
   }
-  
-  :root {
-    --gap: 80px;
-  }
 
   .h1 {
     font-size: 36px;
@@ -1268,6 +1263,11 @@ a svg {
 
   .p {
     width: 215px;
+  }
+
+  .territory__amenities {
+    justify-content: space-between;
+    max-width: 800px;
   }
 
   .territory__amenities-item-wifi {
@@ -1298,13 +1298,26 @@ a svg {
     margin-left: 115px;
   }
 
+  .actions__descripton {
+    max-width: 100%;
+    text-align: center;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .activities__gl-text {
+    padding-left: 80px;
+  }
+
   .activities__grid {
     gap: 15px;
     grid-template-columns: repeat(3, calc((100% - 30px) / 3));
   }
 
   .activities__img {
-    width: 220px;
+    width: 300px;
   }
 
   .activities__picture_2 {
@@ -1324,15 +1337,24 @@ a svg {
     grid-row: 2;
   }
 
+  .activities__yoga-text {
+    padding-left: 35px;
+  }
+
   :root { 
-    --w: 650px;
-    --gap: 50px;
+    --w: 800px;
+    --gap: 135px;
   }
 
   .contacts__tel:hover {
   transform: none;
   color: #fff;
-}
+  }
+
+  .contacts__inst:hover {
+  transform: none;
+  color: #fff;
+  }
 
 } 
  
