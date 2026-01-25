@@ -1559,7 +1559,7 @@ a svg {
   }
 }
 
-@media (max-width: 430px) and (hover: none) {
+@media (max-width: 450px) and (hover: none) {
   *:hover {
     color: none;
     box-shadow: none;
@@ -1688,7 +1688,7 @@ a svg {
   }
 }
 
-@media (max-width: 390px) and (hover: none) {
+@media (max-width: 400px) and (hover: none) {
   .about_us__text {
     max-width: 300px;
     padding-left: 35px;
