@@ -58,7 +58,6 @@ body {
   flex-direction: column;
   justify-content: center;
   gap: 6px;
-e
 }
 
 .burger span {
@@ -808,7 +807,8 @@ a svg {
     opacity:.9; 
     margin:0 0 22px; 
     white-space:pre-line;
-    width: 300px;
+    width: auto;
+    max-width: 340px; /* или 100% */
   }
   .btn{
     align-self:flex-start;
@@ -842,6 +842,21 @@ a svg {
   .arrow svg{ width:28px; height:28px; }
 
   /* Адаптив */
+
+  @media (hover: hover) and (pointer: fine) {
+  .arrow:hover{ background:#E6EBDD1a; border-color:#E6EBDD99; }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  :root{
+    --blur: 0px;     /* blur на iOS чаще всего ломает картинку */
+    --gap: 140px;    /* чуть меньше разнос */
+  }
+
+  .is-left  { transform: translateX(calc(-1 * var(--gap))) scale(.92); } /* без rotateY */
+  .is-right { transform: translateX(var(--gap)) scale(.92); }            /* без rotateY */
+  .stack{ perspective: none; } /* убираем 3D */
+}
 
   @media (max-width: 980px){
     :root{ --gap:160px; --h: 480px; }
@@ -1217,7 +1232,14 @@ a svg {
 
 }
 
-@media (min-width: 1024px) and (hover: none) {
+@media (min-width: 1360px) and (hover: none) {
+
+    *:hover {
+    color: none;
+    box-shadow: none;
+    transform: none;
+  }
+
   .container {
     padding: 0 20px;
   }
@@ -1307,24 +1329,10 @@ a svg {
     --gap: 50px;
   }
 
-  .contacts__block {
-    display: block;
+  .contacts__tel:hover {
+  transform: none;
+  color: #fff;
 }
 
-  .contacts__info {
-    margin: 0 auto;
-  }
-
-  .contacts__map {
-    margin: 0 auto;
-  }
-
-  .contacts__number {
-    margin-bottom: 30px;
-  }
-
-  .contacts__call-btn {
-    margin-bottom: 30px;
-  }
 } 
  
