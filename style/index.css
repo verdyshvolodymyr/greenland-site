@@ -1688,7 +1688,7 @@ a svg {
   }
 }
 
-@media (max-width: 400px) and (hover: none) {
+@media (max-width: 415px) and (hover: none) {
   .about_us__text {
     max-width: 300px;
     padding-left: 35px;
