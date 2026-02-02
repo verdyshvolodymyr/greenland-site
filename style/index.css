@@ -2015,3 +2015,54 @@ a svg {
   }
 
 }
+
+
+
+
+/* ======================
+   Android / Mobile safety patch
+   ====================== */
+
+/* 1) Запрещаем авто-увеличение текста (Android иногда раздувает шрифты) */
+html{
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* 2) Убираем микроскролл по X (часто появляется на Android) */
+body{
+  overflow-x: hidden;
+}
+
+/* 3) Стабильная высота header/menu: vh -> svh -> dvh */
+.header{
+  min-height: 100vh;   /* fallback */
+  min-height: 100svh;  /* стабильная высота */
+  min-height: 100dvh;  /* динамическая, если ок */
+}
+
+/* mobile-menu тоже */
+.mobile-menu{
+  height: 100vh;
+  height: 100svh;
+  height: 100dvh;
+}
+
+/* 4) Высота медиа в room-slide без "прыжков" */
+.room-slide__media{
+  height: clamp(240px, 55vh, 520px); /* fallback */
+}
+
+@supports (height: 1svh){
+  .room-slide__media{
+    height: clamp(240px, 55svh, 520px);
+  }
+}
+
+/* 5) На тач-устройствах фильтры иногда "мутнят" и тормозят */
+@media (hover: none) and (pointer: coarse){
+  .room-slide__img--back{
+    filter: none;      /* можно оставить только brightness */
+    opacity: .65;
+  }
+}
