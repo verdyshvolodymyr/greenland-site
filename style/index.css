@@ -10,7 +10,7 @@ body {
 .header {
   position: relative;
   min-height: 100dvh;
-  overflow: hidden;  
+  /* overflow: hidden;   */
 }
 
 .header > .container {
@@ -33,6 +33,7 @@ body {
   object-position: center;
   z-index: 0;
   pointer-events: none;
+  overflow: hidden;
 }
 
 .header__nav {
