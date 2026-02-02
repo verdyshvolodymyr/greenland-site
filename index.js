@@ -111,6 +111,7 @@ applyClasses();
 
     function openMenu() {
       menu.classList.add('is-open');
+      menu.style.transform = 'translateX(0)';
       overlay.hidden = false;
       menu.setAttribute('aria-hidden', 'false');
       burger.setAttribute('aria-expanded', 'true');
@@ -119,6 +120,7 @@ applyClasses();
 
     function closeMenu() {
       menu.classList.remove('is-open');
+      menu.style.transform = 'translateX(100%)';
       overlay.hidden = true;
       menu.setAttribute('aria-hidden', 'true');
       burger.setAttribute('aria-expanded', 'false');
@@ -129,7 +131,11 @@ applyClasses();
       menu.classList.contains('is-open') ? closeMenu() : openMenu();
     });
 
-    closeBtn.addEventListener('click', closeMenu);
+    // closeBtn.addEventListener('click', closeMenu);
+    closeBtn.addEventListener('click', (e) => {
+      console.log('close click', e.target);
+      closeMenu();
+    });
     overlay.addEventListener('click', closeMenu);
 
     links.forEach(link => link.addEventListener('click', closeMenu));

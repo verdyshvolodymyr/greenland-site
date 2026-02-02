@@ -93,10 +93,6 @@ body {
   gap: 18px;
 }
 
-.mobile-menu.is-open{
-  transform: translateX(0);
-}
-
 .mobile-menu__close{
   align-self: flex-end;
   width: 44px;
@@ -875,9 +871,196 @@ a svg {
     .p{ font-size:16px; }
   }
 
-@media (max-width: 610px) {
+@media (max-width: 768.98px) {
   .container {
     padding: 0 15px;
+  }
+
+  .about_us__text {
+    padding-left: 60px;
+    font-size: 17px;
+    max-width: 600px;
+  }
+
+  .header__nav-list {
+    display: none;
+  }
+
+  .header__logo-img {
+    width: 150px;
+  }
+
+  .burger {
+    display: inline-flex;
+  }
+
+  .header__nav {
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .header__logo {
+    width: 70px;
+    grid-column: 2;
+  }
+
+  .header__social {
+    grid-column: 3;
+    justify-self: end;
+  }
+
+  .actions__items{
+    display: grid;
+    grid-template-columns: repeat(2, 210px);
+    gap: 60px;
+    justify-content: center;
+  }
+
+  .actions__items > a:nth-child(5){
+    padding-left: 110px;
+    width: 100%;
+  }
+
+  .activities__grid {
+    gap: 15px;
+    grid-template-columns: repeat(2, calc((100%) / 2));
+  }
+
+  .activities__img {
+    max-width: 300px;
+    max-height: 400px;
+  }
+
+  .activities__picture_2 {
+    grid-row: 1 / 2;
+  }
+
+  .activities__picture_1 {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .activities__picture_3 {
+    display: none;
+  }
+
+  .activities__picture_4 {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .activities__picture_5 {
+    grid-column: 2;
+    grid-row: 3;
+  }
+
+  .activities__yoga {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  :root { 
+    --w: 500px;
+    --gap: 50px;
+  }
+
+  .contacts__block {
+    display: block;
+}
+
+  .contacts__info {
+    margin: 0 auto;
+  }
+
+  .contacts__map {
+    margin: 0 auto;
+  }
+
+  .contacts__number {
+    margin-bottom: 30px;
+  }
+
+  .contacts__call-btn {
+    margin-bottom: 30px;
+  }
+  
+  .territory__amenities-item-wifi {
+    margin-left: 0;
+  }
+
+  .territory__amenities-item-water {
+    margin-left: 0;
+  }
+
+  .territory__amenities-item-rest_place {
+    margin-left: 0;
+  }
+
+  .territory__amenities-item-grill {
+    margin-left: 0;
+  }
+
+  .territory__amenities-item-tennis {
+    margin-left: 0;
+  }
+
+  .territory__amenities-item-bicycles {
+    margin-left: 0;
+  }
+
+  .territory__amenities-item-trampoline {
+    margin-left: 0;
+  }
+
+  .territory__amenities {
+    justify-content: space-between;
+    max-width: 600px;
+  }
+  
+  .h1 {
+    font-size: 27px;
+    text-align: center;
+  }
+
+  .p {
+    font-size: 12px;
+    width: 200px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+  }
+
+  .btn {
+    margin: 0 auto;
+    font-size: 14px;
+  }
+
+  .activities__gl-text {
+    max-width: 300px;
+  }
+
+  .activities__yoga-text {
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 610px) and (hover: none) {
+  :root { 
+    --gap: 30px;
+  }
+
+  .actions__items{
+    gap: 20px;
+  }
+
+  .container {
+    padding: 0 15px;
+  }
+
+  .about_us__text {
+    max-width: 500px;
+    padding-left: 40px;
+    font-size: 17px;
   }
 
   .activities__img {
@@ -893,6 +1076,188 @@ a svg {
     font-size: 14px;
   }
 
+  .content {
+    padding: 6px 6px 30px;
+  }
+
+  .h1 {
+    margin: 0 0 10px;
+  }
+
+  .p {
+    font-size: 10px;
+  }
+
+  .territory__title {
+    font-size: 30px;
+  }
+
+  .territory__amenities {
+    max-width: 550px;
+  }
+
+  .territory__amenities-text {
+    font-size: 13px;
+  }
+
+  .actions__title-link {
+    font-size: 30px;
+  }
+
+  .activities__title {
+    font-size: 30px;
+  }
+
+  .activities__gl-text {
+    max-width: 240px;
+  }
+
+  .activities__img {
+    max-width: 240px;
+  }
+
+  .activities__yoga-text {
+    max-width: 240px;
+  }
+
+}
+
+@media (max-width: 510px) and (hover: none) {
+  *:hover {
+    color: none;
+    box-shadow: none;
+    transform: none;
+  }
+
+  .contacts__tel:hover {
+  transform: none;
+  color: #fff;
+  }
+
+  .contacts__inst:hover {
+  transform: none;
+  color: #fff;
+  }
+
+  .header__nav-link:hover::after {
+  width: 0%;
+  }
+
+  .header__social-link:hover {
+  filter: none;
+  }
+
+  .actions__title-link:hover::after {
+  width: 0%;
+  }
+
+  .actions__descripton:hover::after {
+  width: 0%;
+  }
+
+  .contacts__call-btn-link:hover {
+  background-color: #FFFEEA;
+  }
+
+  .header__logo-img {
+    width: 110px;
+  }
+
+  .header__social img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .header__social-link {
+    margin-left: 15px;
+  }
+
+  .about_us__text {
+    max-width: 400px;
+    padding-left: 40px;
+    font-size: 16px;
+  }
+
+ .content {
+    padding: 6px 6px 30px;
+  }
+
+  .h1 {
+    margin: 0 0 10px;
+  }
+
+  .p {
+    font-size: 10px;
+  }
+
+  .activities__img {
+    width: 200px;
+  }
+
+  .activities__title {
+    font-size: 25px;
+  }
+
+  .activities__gl-text {
+    width: 200px;
+  }
+
+  .activities__yoga-text {
+    width: 200px;
+  }
+  .territory__title {
+    font-size: 25px;
+  }
+
+  .actions__title-link {
+    font-size: 25px;
+  }
+
+  .territory__amenities-text {
+    font-size: 10px;
+  }
+
+  .territory__amenities-icon-parking {
+    width: 65px;
+  }
+
+  .territory__amenities-icon-wifi {
+    width: 60px;
+  }
+
+  .territory__amenities-icon-water {
+    width: 115px;
+  }
+
+  .territory__amenities-icon-rest_place {
+    width: 89px;
+  }
+
+  .territory__amenities-icon-grill {
+    width: 65px;
+  }
+
+  .territory__amenities-icon-tennis {
+    width: 120px;
+  }
+
+  .territory__amenities-icon-bicycles {
+    width: 90px;
+  }
+
+  .territory__amenities-icon-trampoline {
+    width: 80px;
+  }
+
+  .contacts__call {
+    font-size: 25px;
+  }
+
+  .contacts__farewell {
+    font-size: 25px;
+  }
+
+  
 }
 
 @media (min-width: 768px) and (hover: none) {
@@ -1007,164 +1372,6 @@ a svg {
   .territory__amenities {
     justify-content: space-between;
     max-width: 700px;
-  }
-}
-
-@media (max-width: 768.98px) {
-  .container {
-    padding: 0 15px;
-  }
-
-  .header__nav-list {
-    display: none;
-  }
-
-  .header__logo-img {
-    width: 150px;
-  }
-
-  .burger {
-    display: inline-flex;
-  }
-
-  .header__nav {
-    display: grid;
-    gap: 15px;
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .header__logo {
-    width: 70px;
-    grid-column: 2;
-  }
-
-  .header__social {
-    grid-column: 3;
-    justify-self: end;
-  }
-
-  .actions__items{
-    display: grid;
-    grid-template-columns: repeat(2, 210px);
-    gap: 20px;
-    justify-content: center;
-  }
-
-  .actions__items > a:nth-child(5){
-    padding-left: 110px;
-    width: 100%;
-  }
-
-  .activities__grid {
-    gap: 15px;
-    grid-template-columns: repeat(2, calc((100%) / 2));
-  }
-
-  .activities__img {
-    max-width: 300px;
-    max-height: 400px;
-  }
-
-  .activities__picture_2 {
-    grid-row: 1 / 2;
-  }
-
-  .activities__picture_1 {
-    grid-column: 1;
-    grid-row: 3;
-  }
-
-  .activities__picture_3 {
-    display: none;
-  }
-
-  .activities__picture_4 {
-    grid-column: 1;
-    grid-row: 2;
-  }
-
-  .activities__picture_5 {
-    grid-column: 2;
-    grid-row: 3;
-  }
-
-  .activities__yoga {
-    grid-column: 2;
-    grid-row: 2;
-  }
-
-  :root { 
-    --w: 500px;
-    --gap: 30px;
-  }
-
-  .contacts__block {
-    display: block;
-}
-
-  .contacts__info {
-    margin: 0 auto;
-  }
-
-  .contacts__map {
-    margin: 0 auto;
-  }
-
-  .contacts__number {
-    margin-bottom: 30px;
-  }
-
-  .contacts__call-btn {
-    margin-bottom: 30px;
-  }
-  
-  .territory__amenities-item-wifi {
-    margin-left: 0;
-  }
-
-  .territory__amenities-item-water {
-    margin-left: 0;
-  }
-
-  .territory__amenities-item-rest_place {
-    margin-left: 0;
-  }
-
-  .territory__amenities-item-grill {
-    margin-left: 0;
-  }
-
-  .territory__amenities-item-tennis {
-    margin-left: 0;
-  }
-
-  .territory__amenities-item-bicycles {
-    margin-left: 0;
-  }
-
-  .territory__amenities-item-trampoline {
-    margin-left: 0;
-  }
-
-  .territory__amenities {
-    justify-content: space-between;
-  }
-  
-  .h1 {
-    font-size: 27px;
-    text-align: center;
-  }
-
-  .p {
-    font-size: 12px;
-    width: 200px;
-    margin: 0 auto;
-    margin-bottom: 10px;
-  }
-
-  .btn {
-    margin: 0 auto;
-    font-size: 14px;
   }
 }
 
@@ -1559,7 +1766,7 @@ a svg {
   }
 }
 
-@media (max-width: 450px) and (hover: none) {
+@media (max-width: 480px) and (hover: none) {
   *:hover {
     color: none;
     box-shadow: none;
@@ -1610,8 +1817,9 @@ a svg {
   }
 
   .about_us__text {
-    max-width: 350px;
-    padding-left: 45px;
+    max-width: 320px;
+    padding-left: 40px;
+    font-size: 16px;
   }
 
   .content {
@@ -1624,6 +1832,14 @@ a svg {
 
   .p {
     font-size: 10px;
+  }
+
+  .territory__title {
+    font-size: 25px;
+  }
+
+  .actions__title-link {
+    font-size: 25px;
   }
 
   .territory__amenities-text {
@@ -1679,12 +1895,30 @@ a svg {
     width: 165px;
   }
 
+  .activities__title {
+    font-size: 25px;
+  }
+
+  .activities__gl-text {
+    width: 165px;
+  }
+
+  .activities__yoga-text {
+    width: 165px;
+  }
+
   .contacts__call {
+    font-size: 25px;
     text-align: center;
   }
 
   .contacts__farewell {
+    font-size: 25px;
     text-align: center;
+  }
+
+  .contacts__call-btn-link {
+    padding: 20px 65px;
   }
 }
 
@@ -1729,6 +1963,54 @@ a svg {
 
   .contacts__call-btn-link {
     padding: 20px 45px;
+  }
+
+}
+
+@media (max-width: 390px) and (hover: none) {
+  .header__nav {
+    gap: 0px;
+  }
+
+  .about_us__text {
+    font-size: 12px;
+    max-width: 280px;
+    padding-left: 20px;
+  }
+  
+  .header__social-link img {
+    width: 28px;
+    height: 28px;
+  }
+
+  .territory__amenities {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .contacts__call-btn-link {
+    padding: 20px 30px;
+  }
+
+  .territory__title {
+    font-size: 25px;
+  }
+
+  .actions__title-link {
+    font-size: 25px;
+  }
+
+  .activities__title {
+    font-size: 25px;
+  }
+
+  .contacts__call {
+    font-size: 25px;
+  }
+
+  .contacts__farewell {
+    font-size: 25px;
   }
 
 }
