@@ -99,6 +99,16 @@ $stack.addEventListener('pointerup', (e) => {
 hydrateSlides();
 applyClasses();
 
+// ===== device classes (android/ios) =====
+(() => {
+  const ua = navigator.userAgent || '';
+  const isAndroid = /Android/i.test(ua);
+  const isIOS = /iPhone|iPad|iPod/i.test(ua);
+  const root = document.documentElement;
+  if (isAndroid) root.classList.add('is-android');
+  if (isIOS) root.classList.add('is-ios');
+})();
+
 
 (function () {
     const burger = document.querySelector('.burger');

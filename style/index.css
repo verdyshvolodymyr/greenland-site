@@ -2053,88 +2053,88 @@ a svg {
    Android layout fixes (force mobile layout on touch)
    ====================== */
 @media (hover: none) and (pointer: coarse){
-  .section{
+  html.is-android .section{
     padding: 28px 12px;
   }
 
-  .carousel{
+  html.is-android .carousel{
     height: auto;
   }
 
-  .slide{
+  html.is-android .slide{
     grid-template-columns: 1fr;
     grid-auto-rows: auto;
     padding: 16px;
   }
 
-  .media{
+  html.is-android .media{
     height: 240px;
   }
 
-  .content{
+  html.is-android .content{
     padding: 10px 8px 14px;
     text-align: left;
   }
 
-  .h1,
-  .p{
+  html.is-android .h1,
+  html.is-android .p{
     width: 100%;
     max-width: 100%;
   }
 
-  .p{
+  html.is-android .p{
     white-space: normal;
   }
 
-  .btn{
+  html.is-android .btn{
     align-self: flex-start;
   }
 
-  .activities__grid{
+  html.is-android .activities__grid{
     grid-template-columns: 1fr;
     gap: 12px;
   }
 
-  .activities__img{
+  html.is-android .activities__img{
     width: 100%;
     max-width: 320px;
     height: auto;
   }
 
-  .activities__gl,
-  .activities__yoga,
-  .activities__picture_1,
-  .activities__picture_2,
-  .activities__picture_3,
-  .activities__picture_4,
-  .activities__picture_5{
+  html.is-android .activities__gl,
+  html.is-android .activities__yoga,
+  html.is-android .activities__picture_1,
+  html.is-android .activities__picture_2,
+  html.is-android .activities__picture_3,
+  html.is-android .activities__picture_4,
+  html.is-android .activities__picture_5{
     grid-column: auto;
     grid-row: auto;
   }
 
-  .actions__items{
+  html.is-android .actions__items{
     grid-template-columns: 1fr;
     gap: 14px;
   }
 
-  .actions__items > a:nth-child(5){
+  html.is-android .actions__items > a:nth-child(5){
     padding-left: 0;
   }
 
-  .contacts__block{
+  html.is-android .contacts__block{
     display: block;
   }
 
-  .contacts__map{
+  html.is-android .contacts__map{
     height: 360px;
   }
 
-  .contacts__map iframe{
+  html.is-android .contacts__map iframe{
     width: 100%;
     height: 100%;
   }
 
-  .contacts__call-btn-link{
+  html.is-android .contacts__call-btn-link{
     display: block;
     width: 100%;
     text-align: center;
