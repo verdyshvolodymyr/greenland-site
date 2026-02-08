@@ -2020,7 +2020,7 @@ a svg {
 
 
 /* ======================
-   Android / Mobile safety patch
+   Android / Mobile adaptation
    ====================== */
 
 /* 1) Запрещаем авто-увеличение текста (Android иногда раздувает шрифты) */
@@ -2029,9 +2029,13 @@ html{
   text-size-adjust: 100%;
 }
 
-/* 2) Убираем микроскролл по X (часто появляется на Android) */
+/* 2) Убираем микроскролл по X и подсветку тапов */
 body{
   overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+*{
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* 3) Стабильная высота header/menu: vh -> svh -> dvh */
@@ -2052,17 +2056,71 @@ body{
 .room-slide__media{
   height: clamp(240px, 55vh, 520px); /* fallback */
 }
-
 @supports (height: 1svh){
   .room-slide__media{
     height: clamp(240px, 55svh, 520px);
   }
 }
 
-/* 5) На тач-устройствах фильтры иногда "мутнят" и тормозят */
+/* 5) На тач-устройствах уменьшаем тяжелые эффекты */
 @media (hover: none) and (pointer: coarse){
   .room-slide__img--back{
-    filter: none;      /* можно оставить только brightness */
+    filter: none;
     opacity: .65;
+  }
+
+  .room-slide__img--mid{
+    opacity: .85;
+  }
+
+  .room-slider__arrow{
+    width: 48px;
+    height: 48px;
+    font-size: 24px;
+  }
+}
+
+/* 6) Увеличиваем зоны клика на Android */
+@media (hover: none) and (pointer: coarse){
+  a,
+  button,
+  .room-slide__btn,
+  .btn,
+  .mobile-menu__link,
+  .mobile-menu__close{
+    touch-action: manipulation;
+    min-height: 44px;
+  }
+
+  .burger{
+    width: 48px;
+    height: 48px;
+  }
+}
+
+/* 7) Дополнительные правки для узких Android экранов */
+@media (max-width: 600px) and (hover: none) and (pointer: coarse){
+  .container{
+    padding: 0 16px;
+  }
+
+  .about_us__text{
+    max-width: 340px;
+    padding-left: 24px;
+    font-size: 16px;
+  }
+
+  .actions__items{
+    grid-template-columns: repeat(1, 1fr);
+    gap: 14px;
+  }
+
+  .activities__grid{
+    grid-template-columns: repeat(1, 1fr);
+    gap: 12px;
+  }
+
+  .contacts__map{
+    height: 360px;
   }
 }
