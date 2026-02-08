@@ -2016,138 +2016,11 @@ a svg {
 
 }
 
-/* ======================
-   Disable hover effects on phones
-   ====================== */
-@media (hover: none) and (pointer: coarse){
-  *{
-    transition: none !important;
-  }
-
-  .header__nav-link:hover::after,
-  .actions__title-link:hover::after,
-  .actions__descripton:hover::after{
-    width: 0 !important;
-  }
-
-  .header__social-link:hover{
-    filter: none !important;
-  }
-
-  .actions__img:hover,
-  .contacts__tel:hover,
-  .contacts__inst:hover,
-  .contacts__telegram:hover{
-    transform: none !important;
-    color: inherit !important;
-  }
-
-  .mobile-menu__link:hover,
-  .contacts__call-btn-link:hover,
-  .btn:hover{
-    background: inherit !important;
-  }
-}
-
-/* ======================
-   Android layout fixes (force mobile layout on touch)
-   ====================== */
-@media (hover: none) and (pointer: coarse){
-  html.is-android .section{
-    padding: 28px 12px;
-  }
-
-  html.is-android .carousel{
-    height: auto;
-  }
-
-  html.is-android .slide{
-    grid-template-columns: 1fr;
-    grid-auto-rows: auto;
-    padding: 16px;
-  }
-
-  html.is-android .media{
-    height: 240px;
-  }
-
-  html.is-android .content{
-    padding: 10px 8px 14px;
-    text-align: left;
-  }
-
-  html.is-android .h1,
-  html.is-android .p{
-    width: 100%;
-    max-width: 100%;
-  }
-
-  html.is-android .p{
-    white-space: normal;
-  }
-
-  html.is-android .btn{
-    align-self: flex-start;
-  }
-
-  html.is-android .activities__grid{
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  html.is-android .activities__img{
-    width: 100%;
-    max-width: 320px;
-    height: auto;
-  }
-
-  html.is-android .activities__gl,
-  html.is-android .activities__yoga,
-  html.is-android .activities__picture_1,
-  html.is-android .activities__picture_2,
-  html.is-android .activities__picture_3,
-  html.is-android .activities__picture_4,
-  html.is-android .activities__picture_5{
-    grid-column: auto;
-    grid-row: auto;
-  }
-
-  html.is-android .actions__items{
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-
-  html.is-android .actions__items > a:nth-child(5){
-    padding-left: 0;
-  }
-
-  html.is-android .contacts__block{
-    display: block;
-  }
-
-  html.is-android .contacts__map{
-    height: 360px;
-  }
-
-  html.is-android .contacts__map iframe{
-    width: 100%;
-    height: 100%;
-  }
-
-  html.is-android .contacts__call-btn-link{
-    display: block;
-    width: 100%;
-    text-align: center;
-    padding: 16px 24px;
-    box-sizing: border-box;
-  }
-}
-
 
 
 
 /* ======================
-   Android / Mobile adaptation
+   Android / Mobile safety patch
    ====================== */
 
 /* 1) Запрещаем авто-увеличение текста (Android иногда раздувает шрифты) */
@@ -2156,13 +2029,9 @@ html{
   text-size-adjust: 100%;
 }
 
-/* 2) Убираем микроскролл по X и подсветку тапов */
+/* 2) Убираем микроскролл по X (часто появляется на Android) */
 body{
   overflow-x: hidden;
-  -webkit-tap-highlight-color: transparent;
-}
-*{
-  -webkit-tap-highlight-color: transparent;
 }
 
 /* 3) Стабильная высота header/menu: vh -> svh -> dvh */
@@ -2183,71 +2052,17 @@ body{
 .room-slide__media{
   height: clamp(240px, 55vh, 520px); /* fallback */
 }
+
 @supports (height: 1svh){
   .room-slide__media{
     height: clamp(240px, 55svh, 520px);
   }
 }
 
-/* 5) На тач-устройствах уменьшаем тяжелые эффекты */
+/* 5) На тач-устройствах фильтры иногда "мутнят" и тормозят */
 @media (hover: none) and (pointer: coarse){
   .room-slide__img--back{
-    filter: none;
+    filter: none;      /* можно оставить только brightness */
     opacity: .65;
-  }
-
-  .room-slide__img--mid{
-    opacity: .85;
-  }
-
-  .room-slider__arrow{
-    width: 48px;
-    height: 48px;
-    font-size: 24px;
-  }
-}
-
-/* 6) Увеличиваем зоны клика на Android */
-@media (hover: none) and (pointer: coarse){
-  a,
-  button,
-  .room-slide__btn,
-  .btn,
-  .mobile-menu__link,
-  .mobile-menu__close{
-    touch-action: manipulation;
-    min-height: 44px;
-  }
-
-  .burger{
-    width: 48px;
-    height: 48px;
-  }
-}
-
-/* 7) Дополнительные правки для узких Android экранов */
-@media (max-width: 600px) and (hover: none) and (pointer: coarse){
-  .container{
-    padding: 0 16px;
-  }
-
-  .about_us__text{
-    max-width: 340px;
-    padding-left: 24px;
-    font-size: 16px;
-  }
-
-  .actions__items{
-    grid-template-columns: repeat(1, 1fr);
-    gap: 14px;
-  }
-
-  .activities__grid{
-    grid-template-columns: repeat(1, 1fr);
-    gap: 12px;
-  }
-
-  .contacts__map{
-    height: 360px;
   }
 }
