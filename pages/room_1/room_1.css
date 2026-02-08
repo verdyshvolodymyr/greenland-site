@@ -4,13 +4,13 @@
 * { box-sizing: border-box; }
 
 :root{
-  --bg:#122117;
-  --text:#ffffff;
-  --card-shadow:0 12px 40px rgba(0,0,0,.35);
-  --btn-bg:#fff;
-  --btn-text:#0b0e11;
-  --pill-bg:#FFFEEA;
-  --pill-bg-hover:#ddd2b0;
+  --bg: #122117;
+  --text: #ffffff;
+  --card-shadow: 0 12px 40px rgba(0,0,0,.35);
+  --btn-bg: #fff;
+  --btn-text: #0b0e11;
+  --pill-bg: #FFFEEA;
+  --pill-bg-hover: #ddd2b0;
 }
 
 html, body { height: 100%; }
@@ -18,8 +18,9 @@ html, body { height: 100%; }
 body {
   margin: 0;
   background-color: var(--bg);
-  font-family: 'Noto Sans Math', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-family: 'Noto Sans', 'Noto Sans Math', system-ui, -apple-system, sans-serif;
   color: var(--text);
+  overflow-x: hidden; /* Предотвращает горизонтальный скролл */
 }
 
 /* =======================
@@ -29,7 +30,10 @@ body {
   padding: 16px 20px;
 }
 
-.room1_logo { width: 200px; max-width: 40vw; }
+.room1_logo { 
+  width: 200px; 
+  max-width: 40vw; 
+}
 
 .room1__title {
   margin: 0;
@@ -47,155 +51,271 @@ body {
   padding: 0 45px;
 }
 
-/* Ряд: стрелки по бокам от слайдера (НЕ поверх него) */
+/* =======================
+   Slider System (Unified)
+   ======================= */
+
+.room1__slider {
+  /* Отрицательный отступ только если сверху есть место, иначе на моб. будет наезд */
+  margin-top: -20px; 
+}
+
+/* Обертка для стрелок и слайдера */
 .slider-row {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 140px;                /* расстояние между стрелкой и слайдером */
+  gap: 80px; /* Отступ на десктопе */
   max-width: 1400px;
-  margin: 0 auto 24px;
+  margin: 0 auto 40px;
   padding: 0 20px;
+  position: relative; /* Важно для позиционирования на моб */
 }
 
-/* =======================
-   Slider
-   ======================= */
-
-.room1__slider {
-  margin-top: -70px;
-}   
-
+/* Сам слайдер (окно просмотра) */
 .slider {
   position: relative;
   overflow: hidden;
   border-radius: 50px;
   background: #000;
   box-shadow: var(--card-shadow);
-  flex: 1 1 auto;           /* заполняет пространство между стрелками */
+  flex: 1 1 auto;
+  width: 100%;
+  aspect-ratio: 16 / 9; /* Базовая пропорция для десктопа */
 }
 
-/* Лента со слайдами */
+/* Лента слайдов */
 .slides {
   display: flex;
+  height: 100%;
   transition: transform 420ms ease;
   will-change: transform;
 }
 
-/* Слайд */
+/* Отдельный слайд */
 .slide {
   position: relative;
   min-width: 100%;
-  height: 56vw;             /* соотношение 16:9 */
-  max-height: 410px;
-  color: #fff;
+  height: 100%;
+  flex-shrink: 0; /* Чтобы слайды не сжимались */
 }
 
 .slide__img {
-  position: absolute;
-  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: saturate(1.02) contrast(1.05);
+  display: block;
 }
 
-/* Затемняющий градиент поверх фото для читаемости контента */
+/* Затемнение для текста на слайде */
 .slide::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,.0) 20%, rgba(0,0,0,.55) 100%);
+  background: linear-gradient(180deg, rgba(0,0,0,0) 50%, rgba(0,0,0,0.6) 100%);
   pointer-events: none;
 }
 
-/* Кнопка внутри слайда */
+/* Кнопка внутри слайда (если есть) */
 .btn {
   position: absolute;
   left: 24px;
-  bottom: 20px;
-  z-index: 1;
-  transition: transform .15s ease, opacity .2s ease;
+  bottom: 24px;
+  z-index: 2;
 }
-.btn:hover { opacity: .95; }
-.btn:active { transform: translateY(1px); }
 
 /* =======================
-   Slider Controls (вне слайдера)
+   Navigation Arrows
    ======================= */
+/* Базовый стиль стрелок (десктоп) */
 .nav {
   cursor: pointer;
-  flex: 0 0 44px;       
-  transition: background-color .2s ease, transform .1s ease;
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  user-select: none;
+  /* Если внутри текст стрелок, можно задать размер шрифта */
+  font-size: 24px; 
+  color: #fff;
 }
 
-
-/* Модификаторы на всякий случай (не используются для позиционирования) */
-.nav--prev {}
-.nav--next {}
+.nav:hover { opacity: 0.8; }
+.nav:active { transform: scale(0.95); }
 
 /* =======================
-   CTA под слайдером
+   CTA & Text Content
    ======================= */
 .room1__description {
   display: flex;
-  gap: 20px;
+  flex-direction: column; /* По умолчанию в колонку для безопасности */
   align-items: center;
-  margin-left: 260px;
+  margin-top: 20px;
 }
 
 .room1_btn {
   display: flex;
   justify-content: center;
-  margin: 0 auto 50px;
-  gap: 16px;
-  max-width: 1400px;
+  margin: 0 auto 40px; /* Отступ вниз до текста */
+  width: 100%;
   padding: 0 20px;
 }
 
 .contacts__call-btn-link {
   color: #000;
   text-decoration: none;
-  font-size: clamp(18px, 2.2vw, 25px);
+  font-size: clamp(16px, 4vw, 22px);
   background-color: var(--pill-bg);
-  border-radius: 25px;
-  padding: 25px 50px;
+  border-radius: 50px; /* Полный овал */
+  padding: 20px 40px;
   transition: background-color 0.3s ease, transform 0.2s ease;
   display: inline-block;
+  text-align: center;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
-.contacts__call-btn-link:hover { background-color: var(--pill-bg-hover); }
-.contacts__call-btn-link:active { transform: translateY(1px); }
 
-/* =======================
-   Description
-   ======================= */
+.contacts__call-btn-link:hover { background-color: var(--pill-bg-hover); }
+.contacts__call-btn-link:active { transform: translateY(2px); }
+
 .room1__text {
   margin: 0 auto;
   max-width: 1400px;
-  line-height: 1.55;
-  font-size: clamp(14px, 2vw, 16px);
+  line-height: 1.6;
+  font-size: clamp(14px, 2vw, 18px);
+  padding: 0 20px;
+}
+
+.general_info {
+  max-width: 1000px;
+  padding: 20px;
+  margin: 30px auto 0;
+  background: rgba(255,255,255,0.03); /* Легкая подложка */
+  border-radius: 20px;
 }
 
 /* =======================
-   Responsive
+   RESPONSIVE (Mobile Logic)
    ======================= */
-@media (max-width: 900px) {
-  .container { padding: 0 24px; }
-  .slider-row { padding: 0 12px; gap: 12px; }
-  .slider { border-radius: 40px; }
-}
 
-@media (max-width: 640px) {
-  .slider-row {
-    flex-direction: column;      /* стрелки под слайдером */
-    gap: 10px;
+/* --- Планшеты и Десктопы (настройка отступов) --- */
+@media (min-width: 769px) {
+  .room1__description {
+    flex-direction: row;
+    margin-left: 260px; /* Возвращаем отступ, если нужен на широком экране */
+    align-items: flex-start;
   }
-  .nav { width: 40px; height: 40px; flex-basis: 40px; }
-  .btn { left: 16px; bottom: 16px; }
+  
+  .room1__slider { margin-top: -70px; }
+  .slide { height: 500px; } /* Фикс высота для десктопа */
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .slides { transition: none; }
-  .btn, .nav { transition: none; }
+/* --- МОБИЛЬНЫЕ УСТРОЙСТВА (до 768px) --- */
+@media (max-width: 768px) {
+  
+  .container { padding: 0 20px; }
+  .room1__slider { margin-top: 10px; } /* Убираем наезд на заголовок */
+
+  /* 1. Меняем логику контейнера слайдера */
+  .slider-row {
+    display: block; /* Убираем flex, чтобы стрелки не сжимали слайдер */
+    padding: 0;     /* Слайдер от края до края или с мин. отступами */
+    margin-bottom: 30px;
+    gap: 0;
+  }
+
+  /* 2. Слайдер на всю ширину */
+  .slider {
+    width: 100%;
+    border-radius: 24px;
+    aspect-ratio: 4 / 5; /* Вертикальный формат для мобильных (как сторис/рилс, но короче) */
+    max-height: 60vh;
+  }
+  
+  /* Если хотим горизонтальный слайдер на моб, поменяйте aspect-ratio на 4/3 */
+
+  /* 3. Стрелки превращаем в плавающие кнопки ПОВЕРХ картинки */
+  .nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.2); /* Полупрозрачный фон */
+    backdrop-filter: blur(8px); /* Эффект стекла */
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  }
+
+  .nav:active {
+    background: rgba(255, 255, 255, 0.4);
+    transform: translateY(-50%) scale(0.9);
+  }
+
+  /* Позиционирование стрелок */
+  .nav--prev { left: 15px; }
+  .nav--next { right: 15px; }
+
+  /* Текст описания */
+  .room1__text {
+    text-align: left;
+    padding: 0 5px;
+  }
+  
+  /* Кнопка */
+  .contacts__call-btn-link {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  /* Скрываем стрелки */
+  .nav {
+    display: none !important;
+  }
+
+  /* Убедитесь, что слайдер занимает всю ширину */
+  .slider-row {
+    padding: 0;
+  }
 }
 
+/* --- УЗКИЕ ЭКРАНЫ (iPhone SE, Small Android - 380px и меньше) --- */
+@media (max-width: 380px) {
+  .slider {
+    aspect-ratio: 1 / 1; /* Квадратный слайдер, чтобы влезло больше контента снизу */
+    border-radius: 20px;
+  }
+
+  .nav {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+  
+  .contacts__call-btn-link {
+    font-size: 16px;
+    padding: 18px;
+  }
+  
+  .room1__title {
+    font-size: 26px;
+  }
+}
+
+.slide {
+  height: 100%; /* Обов'язково: слайд має займати всю висоту батьківського блоку */
+}
+
+.slide__img {
+  width: 100%;
+  height: 100%;       /* Розтягуємо фото на всю висоту */
+  object-fit: cover;  /* Обрізаємо краї, щоб не сплющувати фото */
+  display: block;     /* Прибираємо можливі відступи знизу */
+}

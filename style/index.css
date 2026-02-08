@@ -1990,12 +1990,20 @@ a svg {
     gap: 20px;
   }
 
+  .territory__amenities-item {
+    margin-top: 5px;
+  }
+
   .contacts__call-btn-link {
     padding: 20px 30px;
   }
 
   .territory__title {
     font-size: 25px;
+  }
+
+  .actions__title {
+    margin-top: 50px;
   }
 
   .actions__title-link {
@@ -2007,7 +2015,7 @@ a svg {
   }
 
   .contacts__call {
-    font-size: 25px;
+    font-size: 24px;
   }
 
   .contacts__farewell {
