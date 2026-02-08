@@ -1045,7 +1045,7 @@ a svg {
   }
 }
 
-@media (max-width: 610px) and (hover: none) {
+@media (max-width: 610px) {
   :root { 
     --gap: 30px;
   }
@@ -1123,7 +1123,7 @@ a svg {
 
 }
 
-@media (max-width: 510px) and (hover: none) {
+@media (max-width: 510px) {
   *:hover {
     color: none;
     box-shadow: none;
@@ -1261,7 +1261,7 @@ a svg {
   
 }
 
-@media (min-width: 768px) and (hover: none) {
+@media (min-width: 768px) {
   *:hover {
     color: none;
     box-shadow: none;
@@ -1324,7 +1324,7 @@ a svg {
   }
 }
   
-@media (min-width: 800px) and (hover: none) {
+@media (min-width: 800px) {
   .about_us__text {
     max-width: 700px;
     padding-left: 40px;
@@ -1519,7 +1519,7 @@ a svg {
   }
 }
 
-@media (min-width: 1024px) and (hover: none) {
+@media (min-width: 1024px) {
   *:hover {
     color: none;
     box-shadow: none;
@@ -1614,14 +1614,14 @@ a svg {
   }
 }
 
-@media (min-width: 1180px) and (hover: none) {
+@media (min-width: 1180px) {
   .about_us__text {
     max-width: 800px;
     padding-left: 150px;
   }
 }
 
-@media (min-width: 1360px) and (hover: none) {
+@media (min-width: 1360px) {
 
   *:hover {
     color: none;
@@ -1767,7 +1767,7 @@ a svg {
   }
 }
 
-@media (max-width: 480px) and (hover: none) {
+@media (max-width: 480px) {
   *:hover {
     color: none;
     box-shadow: none;
@@ -1923,7 +1923,7 @@ a svg {
   }
 }
 
-@media (max-width: 415px) and (hover: none) {
+@media (max-width: 415px) {
   .about_us__text {
     max-width: 300px;
     padding-left: 35px;
@@ -1968,7 +1968,7 @@ a svg {
 
 }
 
-@media (max-width: 390px) and (hover: none) {
+@media (max-width: 390px) {
   .header__nav {
     gap: 0px;
   }
