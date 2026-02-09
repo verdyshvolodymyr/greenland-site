@@ -47,6 +47,12 @@ body {
   padding: 0 45px;
 }
 
+.container_general {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 45px 50px 45px;
+}
+
 /* Ряд: стрелки по бокам от слайдера (НЕ поверх него) */
 .slider-row {
   display: flex;
@@ -174,6 +180,8 @@ body {
   max-width: 1400px;
   line-height: 1.55;
   font-size: clamp(14px, 2vw, 16px);
+  display: block;
+  padding-right: 20px;
 }
 
 .general_info {
@@ -187,22 +195,88 @@ body {
 /* =======================
    Responsive
    ======================= */
-@media (max-width: 900px) {
-  .container { padding: 0 24px; }
-  .slider-row { padding: 0 12px; gap: 12px; }
+
+@media (max-width: 1200px) {
+  .container { padding: 60px 45px; }
+  .slider-row { padding: 0 20px; gap: 70px; }
   .slider { border-radius: 40px; }
+
+  .room1__description {
+    margin-left: 100px;
+  }
+
+  .room1__text {
+    max-width: 500px;
+    display: block;
+    padding-right: 20px;
+  }
+
+  .general_info {
+    max-width: 850px;
+  }
+  
+}
+   
+@media (max-width: 900px) {
+  .container_general {
+    padding: 0 25px 50px 25px;
+  }
+  .container { padding: 60px 30px; }
+  .slider-row { padding: 0 12px; gap: 35px; }
+  .slider { border-radius: 40px; }
+
+  .room1__description {
+    flex-direction: column-reverse;
+    margin-left: 0;
+  }
+
+  .room1__title {
+    text-align: center;
+  }
+  
+  .room1__text {
+    max-width: 600px;
+  }
+
+  .general_info {
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container_general {
+    padding: 0 20px 30px 20px;
+  }
+
+  .room1__text {
+    max-width: 500px;
+  }
+
+  .general_info {
+    max-width: 500px;
+  }
 }
 
 @media (max-width: 640px) {
+  .slide {
+    width: 50px;
+  }
   .slider-row {
-    flex-direction: column;      /* стрелки под слайдером */
     gap: 10px;
   }
-  .nav { width: 40px; height: 40px; flex-basis: 40px; }
+
+  .container {
+    padding: 60px 0 30px 0;
+  }
+
+  .nav img {
+    width: 100%;
+  }
+  .nav { width: 40px; height: 75px; flex-basis: 40px; }
   .btn { left: 16px; bottom: 16px; }
 }
 
-@media (prefers-reduced-motion: reduce) {
+/* @media (prefers-reduced-motion: reduce) {
   .slides { transition: none; }
   .btn, .nav { transition: none; }
-}
+} */
