@@ -1,78 +1,104 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // 1. Получаем элементы
-    const slidesContainer = document.getElementById('slides');
-    const slides = document.querySelectorAll('.slide');
-    const prevBtn = document.querySelector('.nav--prev');
-    const nextBtn = document.querySelector('.nav--next');
-    const sliderFrame = document.getElementById('slider'); // Рамка для свайпов
+// ===== helpers =====
+const byId = id => document.getElementById(id);
+const qs = (sel, root = document) => root.querySelector(sel);
+const qsa = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+const clamp = (n, min, max) => Math.max(min, Math.min(max, n));
 
-    let currentIndex = 0;
-    const totalSlides = slides.length;
+// ===== DOM =====
+const $slidesWrap = byId('slides');
+const $dotsWrap   = byId('dots');
+const $slider     = byId('slider');
+const $slides     = qsa('.slide', $slidesWrap);
+const N = $slides.length;
+let index = 0;
 
-    // 2. Функция переключения слайдов
-    function updateSlider() {
-        // Сдвигаем ленту на нужный процент
-        slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+// ===== контент из data-*, заголовок как ссылка при наличии data-link
+function hydrateSlides() {
+  $slides.forEach(sl => {
+    const title = sl.dataset.title || '';
+    const text  = sl.dataset.text  || '';
+    const link  = sl.dataset.link  || '';
+
+    const $h1  = qs('.h1', sl);
+    const $p   = qs('.p', sl);
+    const $btn = qs('.btn', sl);
+
+    if (title) {
+      $h1.innerHTML = link
+        ? `<a href="${link}" target="_blank" rel="noopener noreferrer">${title}</a>`
+        : title;
+    } else {
+      $h1.textContent = '';
     }
+    $p.textContent = text;
 
-    function go(direction) {
-        // direction: 1 = вперед, -1 = назад
-        currentIndex += direction;
-
-        // Зацикливание (карусель)
-        if (currentIndex >= totalSlides) {
-            currentIndex = 0;
-        } else if (currentIndex < 0) {
-            currentIndex = totalSlides - 1;
-        }
-
-        updateSlider();
+    if ($btn) {
+      if (link) {
+        $btn.hidden = false;
+        $btn.onclick = () => location.href = link;
+      } else {
+        $btn.hidden = true;
+        $btn.onclick = null;
+      }
     }
+  });
+}
 
-    // 3. Обработчики кнопок (Стрелок)
-    if (nextBtn) nextBtn.addEventListener('click', () => go(1));
-    if (prevBtn) prevBtn.addEventListener('click', () => go(-1));
+// ===== точки
+function buildDots() {
+  $dotsWrap.innerHTML = '';
+  for (let i = 0; i < N; i++) {
+    const b = document.createElement('button');
+    b.className = 'dot';
+    b.type = 'button';
+    b.setAttribute('aria-label', `Перейти к слайду ${i + 1}`);
+    b.addEventListener('click', () => goTo(i));
+    $dotsWrap.appendChild(b);
+  }
+}
 
-    // 4. Управление с клавиатуры
-    document.addEventListener('keydown', e => {
-        if (e.key === 'ArrowLeft') go(-1);
-        if (e.key === 'ArrowRight') go(1);
-    });
+function paint() {
+  // проматываем ленту
+  $slidesWrap.style.transform = `translateX(${-index * 100}%)`;
+  // обновляем точки
+  qsa('.dot', $dotsWrap).forEach((d, i) => {
+    d.classList.toggle('is-active', i === index);
+  });
+}
 
-    // 5. Свайпы (Взято из вашего кода, но адаптировано)
-    // Pointer events работают и для мышки, и для пальца
-    let startX = null;
+function goTo(i) {
+  index = clamp(i, 0, N - 1);
+  paint();
+}
 
-    sliderFrame.addEventListener('pointerdown', e => {
-        // Блокируем стандартное перетаскивание картинки браузером
-        e.preventDefault(); 
-        startX = e.clientX;
-        // Захват курсора для лучшего UX
-        sliderFrame.setPointerCapture(e.pointerId);
-    });
+function go(delta) {
+  index = (index + delta + N) % N;
+  paint();
+}
 
-    sliderFrame.addEventListener('pointerup', e => {
-        if (startX === null) return;
-        
-        const endX = e.clientX;
-        const diff = startX - endX;
-        const minSwipeDistance = 50; // Минимальная длина свайпа
+// ===== стрелки
+qs('[data-dir="prev"]').addEventListener('click', () => go(-1));
+qs('[data-dir="next"]').addEventListener('click', () => go(+1));
 
-        // Если провели пальцем влево (больше порога) -> следующий слайд
-        if (diff > minSwipeDistance) {
-            go(1);
-        } 
-        // Если провели вправо -> предыдущий слайд
-        else if (diff < -minSwipeDistance) {
-            go(-1);
-        }
-
-        startX = null;
-        sliderFrame.releasePointerCapture(e.pointerId);
-    });
-    
-    // Сбрасываем свайп, если курсор ушел за пределы или отменился
-    sliderFrame.addEventListener('pointercancel', () => {
-        startX = null;
-    });
+// ===== клавиатура
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowLeft')  go(-1);
+  if (e.key === 'ArrowRight') go(+1);
 });
+
+// ===== свайпы (pointer events)
+let startX = null;
+$slider.addEventListener('pointerdown', e => {
+  startX = e.clientX;
+});
+$slider.addEventListener('pointerup', e => {
+  if (startX == null) return;
+  const dx = e.clientX - startX;
+  startX = null;
+  if (Math.abs(dx) > 50) go(dx > 0 ? -1 : +1);
+});
+
+// ===== init =====
+hydrateSlides();
+buildDots();
+goTo(0);

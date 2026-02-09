@@ -176,6 +176,14 @@ body {
   font-size: clamp(14px, 2vw, 16px);
 }
 
+.general_info {
+  max-width: 1000px;
+  padding: 20px;
+  margin: 30px auto 0;
+  background: rgba(255,255,255,0.03); /* Легкая подложка */
+  border-radius: 20px;
+}
+
 /* =======================
    Responsive
    ======================= */
