@@ -50,7 +50,7 @@ body {
 .container_general {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 45px 0 45px 50px;
+  padding: 0 45px 50px 45px;
 }
 
 /* Ряд: стрелки по бокам от слайдера (НЕ поверх него) */
@@ -219,7 +219,7 @@ body {
    
 @media (max-width: 900px) {
   .container_general {
-    padding: 25px 0 25px 50px;
+    padding: 0 25px 50px 25px;
   }
   .container { padding: 60px 30px; }
   .slider-row { padding: 0 12px; gap: 35px; }
@@ -245,7 +245,7 @@ body {
 
 @media (max-width: 768px) {
   .container_general {
-    padding: 15px 0 15px 30px;
+    padding: 0 20px 30px 20px;
   }
 
   .room1__text {
@@ -266,7 +266,7 @@ body {
   }
 
   .container {
-    padding: 60px 20px;
+    padding: 60px 0 30px 0;
   }
 
   .nav img {
